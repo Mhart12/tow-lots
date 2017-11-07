@@ -47,11 +47,6 @@ the Brigade/developers) low risk way to test skills development
 ## Resources
 Access to Open Data KC's API and raw data set.
 
-## The Team
-
-* Eric Roche (KCMO contact, project champion     Slack @ericroche      Twitter @KansasCityEric)
-* Nate Perry (Tow Lot manager     contact via Eric Roche)
-
 
 ## What we need
 

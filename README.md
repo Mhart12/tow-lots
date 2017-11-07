@@ -48,7 +48,7 @@ results based on opening the data/making it more accessible? (For
 the Brigade/developers) low risk way to test skills development
 
 ## Resources
-Access to Open Data KC's API and raw data set.
+Access to Open Data KC's API and raw data set.  [https://data.kcmo.org/Traffic/Kansas-City-Monthly-Car-Auction/2uje-k9n5](https://data.kcmo.org/Traffic/Kansas-City-Monthly-Car-Auction/2uje-k9n5)
 
 
 ## What we need

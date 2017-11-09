@@ -16,8 +16,6 @@ may be an opportunity to increase revenue, reduce waste (into the
 landfill), or even connect more people to low cost vehicles with
 greater accessibility and transparency to the data.
 
-MVP: 
-
 ## The workflow
 
 Auctioneer lists items by:

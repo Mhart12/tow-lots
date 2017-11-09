@@ -35,7 +35,7 @@ Auctioneer lists items by:
 
 ## Future Opportunities
 
-* Addition of photos to vehicle listings (may be available in second version after demo to Nate, will not be included in first)
+* Addition of photos to vehicle listings (may be available in second version, will not be included in first)
 * Wishlist - ability to select desired items from a "frequently sold" list, where the site will send the buyer a notification when one of these items is listed for sale (via email or tweet?)
 
 Online auctions? How to measure the impact or change on auction

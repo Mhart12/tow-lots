@@ -7,14 +7,11 @@ This project is up for adoption.
 KCMO runs monthly auctions of cars and other items (boats,
 scooters, etc) that are unclaimed from city tow lots, but
 information about the items up for auction isn’t easily accessible
-by the salvage dealers.
+by salvage dealers. A list of the vehicles up for auction is available online that includes limited information about the condition of the vehicles. The minimal user interface fosters a limited market of buyers, reducing revenue and resulting in fewer vehicles being sold. 
 
-There
-are current auction attendees who know how to work the system,
-and most of the items for auction are purchase, but we believe there
-may be an opportunity to increase revenue, reduce waste (into the
+There is an opportunity to increase revenue, increase sales, reduce waste (into the
 landfill), or even connect more people to low cost vehicles with
-greater accessibility and transparency to the data.
+better access to more, relevant data.
 
 ## What we need
 
@@ -47,7 +44,10 @@ and how to download it or ascdess it using a RESTful API (JSON).  It also contai
 ## Possible steps:
 
 * Review the existing data source
+* Interview Tow Services Section Section Staff and identify an agency project champion
+* Conduct user interviews with salvage dealers that do and do not participate in the auctions
 * Design a system
+* Wireframe a user interface
 * Create a road map and issues that can be followed to implement
 * Implement
 

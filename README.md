@@ -44,8 +44,6 @@ and how to download it or ascdess it using a RESTful API (JSON).  It also contai
 ## Possible steps:
 
 * Review the existing data source
-* Interview Tow Services Section Section Staff and identify an agency project champion
-* Conduct user interviews with salvage dealers that do and do not participate in the auctions
 * Design a system
 * Wireframe a user interface
 * Create a road map and issues that can be followed to implement

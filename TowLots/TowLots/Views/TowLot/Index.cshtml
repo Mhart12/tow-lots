@@ -16,8 +16,8 @@
                     <th>Model</th>
                     <th>Vin</th>
                     <th>Mileage</th>
-                    <th>Keys</th>
                     <th>Reason</th>
+                    <th>Keys</th>
                     <th>Comments</th>
                 </tr>
             </thead>
@@ -25,15 +25,15 @@
                 @foreach (var tow in Model) {
                 <tr>
                     <td>@tow.Lot</td>
-                    <td>@tow.VehicleId</td>
-                    <td>@tow.TowReference</td>
+                    <td>@tow.Vehicle_Id</td>
+                    <td>@tow.Tow_Reference</td>
                     <td>@tow.Year</td>
                     <td>@tow.Make</td>
                     <td>@tow.Model</td>
                     <td>@tow.Vin</td>
                     <td>@tow.Mileage</td>
-                    <td>@tow.Keys</td>
                     <td>@tow.Reason</td>
+                    <td>@tow.Keys</td>
                     <td>@tow.Comments</td>
                 </tr>
                 }

@@ -16,10 +16,11 @@ namespace TowLots.Controllers
             {
                 BaseAddress = new Uri("https://data.kcmo.org")
             };
-            var response = await client.GetStringAsync($"/resource/xpwx-fzzw.json?$$app_token=RywPlFpEm1SQhxfw6lTHBbcC9");
-            response.En
-            var result = await response.Con
-            var data = JsonConvert.DeserializeObject<IEnumerable<TowLot>>(response);
+            var response = await client.GetAsync($"/resource/xpwx-fzzw.json?$$app_token=RywPlFpEm1SQhxfw6lTHBbcC9");
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadAsStringAsync();
+            var data = JsonConvert.DeserializeObject<IEnumerable<TowLot>>(result);
             
 
             return View(data);

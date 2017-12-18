@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TowLots.Models.TowLot>
+
+<div class="Container">
+    <div>
+        Number of records: @Model.Count()
+    </div>
+    <div>
+        <table class="table table-hover"> 
+            <thead>
+                <tr>
+                    <th>Lot</th>
+                    <th>Vehicle ID</th>
+                    <th>Tow Number</th>
+                    <th>Year</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Vin</th>
+                    <th>Mileage</th>
+                    <th>Keys</th>
+                    <th>Reason</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tow in Model) {
+                <tr>
+                    <td>@tow.Lot</td>
+                    <td>@tow.VehicleId</td>
+                    <td>@tow.TowReference</td>
+                    <td>@tow.Year</td>
+                    <td>@tow.Make</td>
+                    <td>@tow.Model</td>
+                    <td>@tow.Vin</td>
+                    <td>@tow.Mileage</td>
+                    <td>@tow.Keys</td>
+                    <td>@tow.Reason</td>
+                    <td>@tow.Comments</td>
+                </tr>
+                }
+            </tbody>
+            
+        </table>
+    </div>
+</div>

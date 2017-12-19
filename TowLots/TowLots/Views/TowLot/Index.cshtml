@@ -3,13 +3,15 @@
 <div class="Container">
     <div>
         Number of records: @Model.Count()
-        <br/>
+        <br />
         Search:
-        <input type="text" placeholder="Search" />
-        <button>Search</button>
+        <form asp-controller="TowLot" asp-action="Index">
+            <input type="text" placeholder="Search" name="searchQuery" />
+            <button>Search</button>
+        </form>
     </div>
     <div>
-        <table class="table table-hover"> 
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Lot</th>
@@ -26,23 +28,24 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var tow in Model) {
-                <tr>
-                    <td>@tow.Lot</td>
-                    <td>@tow.Vehicle_Id</td>
-                    <td>@tow.Tow_Reference</td>
-                    <td>@tow.Year</td>
-                    <td>@tow.Make</td>
-                    <td>@tow.Model</td>
-                    <td>@tow.Vin</td>
-                    <td>@tow.Mileage</td>
-                    <td>@tow.Reason</td>
-                    <td>@tow.Keys</td>
-                    <td>@tow.Comments</td>
-                </tr>
+                @foreach (var tow in Model)
+                {
+                    <tr>
+                        <td>@tow.Lot</td>
+                        <td>@tow.Vehicle_Id</td>
+                        <td>@tow.Tow_Reference</td>
+                        <td>@tow.Year</td>
+                        <td>@tow.Make</td>
+                        <td>@tow.Model</td>
+                        <td>@tow.Vin</td>
+                        <td>@tow.Mileage</td>
+                        <td>@tow.Reason</td>
+                        <td>@tow.Keys</td>
+                        <td>@tow.Comments</td>
+                    </tr>
                 }
             </tbody>
-            
+
         </table>
     </div>
 </div>

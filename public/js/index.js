@@ -1,77 +1,71 @@
 $(document).ready(function(){ 
 
-// // API that can decode VIN number 
-// function decodeVIN (vin) {
-// 	$.ajax({
-// 		url: "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVINValuesBatch/",
-// 		type: "POST",
-// 		data: { format: "json", data: vin},
-// 		dataType: "json",
-// 		success: function(result)
-// 		{
-// 			 // console.log(result.Results[0].VehicleType + " " + vin)
-// 		}
-// 	})		
-// }
+  var dropValue;
 
-$("#dropDown :selected").text();    
-var makeSearch = $("#dropDown").val();
+  $(function() {
+    $("#dropDown").on("change",function() {
+      dropValue = this.value;
+      showVehicles()
+    });
+  });
 
-console.log(makeSearch)
-// API provided from KC Tow Lot 
-$.ajax({
-	url: "https://data.kcmo.org/resource/xpwx-fzzw.json",
-	type: "GET",
-	dataType: "json",
-	success: function(result)
-	{
-		var temp;
-		var temp2;
-		var temp3;
+  function showVehicles () {
 
-		for (i = 0; i < result.length; i++) {
+    $('.col-sm-2').remove()
+    $('.col-sm-8').remove()
 
-			// car information div
-  			temp = document.createElement('div');
-  			temp.className = 'col-sm-8';
+    $.ajax({
+    	url: "https://data.kcmo.org/resource/xpwx-fzzw.json",
+    	type: "GET",
+    	dataType: "json",
+    	success: function(result) {
 
-			// first div
-			temp2 = document.createElement('div');
-			temp2.className = 'col-sm-2';
+    		var temp;
+    		var temp2;
+    		var temp3;
 
-			// third div
-			temp3 = document.createElement('div');
-			temp3.className = 'col-sm-2';
+    		for (i = 0; i < result.length; i++) {
 
-			var vin = result[i].vin
-  			var keys = result[i].k
-  			keys == "K" ? keys = "Yes" : keys = "No"
+          if (result[i].make == dropValue) {
+          // car information div
+          temp = document.createElement('div');
+          temp.className = 'col-sm-8';
 
-  			var lot = result[i].lot
-  			var year = result[i].year
-  			year == undefined ? year = "" : year
+          // first div
+          temp2 = document.createElement('div');
+          temp2.className = 'col-sm-2';
 
-  			if (result[i].make == makeSearch) 
+          // third div
+          temp3 = document.createElement('div');
+          temp3.className = 'col-sm-2';
+       
+          var vin = result[i].vin
+          var keys = result[i].k
+          keys == "K" ? keys = "Yes" : keys = "No"
 
-  			var make = result[i].make
-  			var model = result[i].model
-  			var reason = result[i].reason
-  			var tow_reference = result[i].tow_reference
-  			var vehicle_id = result[i].vehicle_id
+          var lot = result[i].lot
+          var year = result[i].year
+          year == undefined ? year = "" : year
 
-  			var all = year + " " + make + " " + model + "<br>" + "VIN: " + vin + "<br>" + "Keys: " + keys + " ----- " + "Lot# " + lot
-  			+ "<br>" + "Reason For Sale: " + reason + " ----- " + "Tow Reference: " + tow_reference + "<br>" + "Vehicle ID: " + vehicle_id
+          var make = result[i].make
+          var model = result[i].model
+          var reason = result[i].reason
+          var tow_reference = result[i].tow_reference
+          var vehicle_id = result[i].vehicle_id
 
-  			temp.innerHTML = all 
-  			temp2.innerHTML;
-  			temp3.innerHTML;
-  			
-  			document.getElementsByClassName('row')[0].appendChild(temp2);
-  			document.getElementsByClassName('row')[0].appendChild(temp);
-  			document.getElementsByClassName('row')[0].appendChild(temp3);
-  			
-		}
-	}
-});	
+          var all = year + " " + make + " " + model + "<br>" + "VIN: " + vin + "<br>" + "Keys: " + keys + " ----- " + "Lot# " + lot
+          + "<br>" + "Reason For Sale: " + reason + " ----- " + "Tow Reference: " + tow_reference + "<br>" + "Vehicle ID: " + vehicle_id
 
+          temp.innerHTML = all 
+          temp2.innerHTML;
+          temp3.innerHTML;
+
+          document.getElementsByClassName('row')[0].appendChild(temp2);
+          document.getElementsByClassName('row')[0].appendChild(temp);
+          document.getElementsByClassName('row')[0].appendChild(temp3);
+          }
+    		}
+    	}
+    });	
+  }
 })

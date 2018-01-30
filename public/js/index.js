@@ -5,6 +5,7 @@ $(document).ready(function(){
   $(function() {
     $("#dropDown").on("change",function() {
       dropValue = this.value;
+      alert(dropValue)
       showVehicles()
     });
   });

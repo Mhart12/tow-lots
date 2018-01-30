@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<TowLots.Models.TowLot>
+@using Newtonsoft.Json;
 
 <div class="Container">
     <div>
@@ -10,42 +11,48 @@
             <button>Search</button>
         </form>
     </div>
-    <div>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Lot</th>
-                    <th>Vehicle ID</th>
-                    <th>Tow Number</th>
-                    <th>Year</th>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Vin</th>
-                    <th>Mileage</th>
-                    <th>Reason</th>
-                    <th>Keys</th>
-                    <th>Comments</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var tow in Model)
-                {
-                    <tr>
-                        <td>@tow.Lot</td>
-                        <td>@tow.Vehicle_Id</td>
-                        <td>@tow.Tow_Reference</td>
-                        <td>@tow.Year</td>
-                        <td>@tow.Make</td>
-                        <td>@tow.Model</td>
-                        <td>@tow.Vin</td>
-                        <td>@tow.Mileage</td>
-                        <td>@tow.Reason</td>
-                        <td>@tow.Keys</td>
-                        <td>@tow.Comments</td>
-                    </tr>
-                }
-            </tbody>
+    <div id="jsGrid_container">
 
-        </table>
     </div>
 </div>
+@section Scripts {
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+    <script type="text/javascript">
+
+        var json = '@Html.Raw(JsonConvert.SerializeObject(@Model))';
+        var parsed = JSON.parse(json);
+
+        var arr = [];
+
+        for (var x in parsed) {
+            arr.push(parsed[x]);
+        }
+        console.log(json);
+        $(function () {
+
+            $("#jsGrid_container").jsGrid({
+                width: "100%",
+                height: "500px",
+                sorting: true,
+                paging: true,
+
+                data: arr, 
+
+                fields: [
+                    { name: "Lot", type: "number", width: 25 },
+                    { name: "Vehicle_Id", type: "number", width: 150 },
+                    { name: "Tow_Reference", type: "number", width: 90 },
+                    { name: "Year", type: "number", width: 55 },
+                    { name: "Make", type: "text", width: 75 },
+                    { name: "Model", type: "text", width: 75 },
+                    { name: "Vin", type: "text", width: 150 },
+                    { name: "Mileage", type: "text", width: 100 },
+                    { name: "Reason", type: "text", width: 75 },
+                    { name: "Keys", type: "text", width: 55 },
+                    { name: "Comments", type: "text", width: 150 }
+
+                ]
+            });
+        });
+    </script>
+}

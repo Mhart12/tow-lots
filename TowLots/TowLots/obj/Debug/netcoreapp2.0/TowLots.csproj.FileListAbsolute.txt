@@ -1,0 +1,11 @@
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\bin\Debug\netcoreapp2.0\TowLots.deps.json
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\bin\Debug\netcoreapp2.0\TowLots.runtimeconfig.json
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\bin\Debug\netcoreapp2.0\TowLots.runtimeconfig.dev.json
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\bin\Debug\netcoreapp2.0\TowLots.dll
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\obj\Debug\netcoreapp2.0\TowLots.csprojResolveAssemblyReference.cache
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\obj\Debug\netcoreapp2.0\TowLots.csproj.CoreCompileInputs.cache
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\obj\Debug\netcoreapp2.0\TowLots.AssemblyInfoInputs.cache
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\obj\Debug\netcoreapp2.0\TowLots.AssemblyInfo.cs
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\bin\Debug\netcoreapp2.0\TowLots.pdb
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\obj\Debug\netcoreapp2.0\TowLots.dll
+C:\Users\abdik\Desktop\tow-lots\TowLots\TowLots\obj\Debug\netcoreapp2.0\TowLots.pdb

@@ -3,40 +3,10 @@ import axios from 'axios';
 import $ from 'jquery'; 
 
 import classes from './App.css'
+import VehicleCell from './components/VehicleCell/VehicleCell'
 import SearchFunctions from './components/SearchFunctions/SearchFunctions'
 import SearchButton from './components/SearchFunctions/SearchButton/SearchButton'
 import Toolbar from './components/Toolbar/Toolbar'
-import Auxiliary from './hoc/Auxiliary'
-
-// JSX styling components need to move these into seperate css files
-const containerStyle = {
-    margin: 'auto',
-    textAlign: 'center'
-};
-
-// JSX styling components need to move these into seperate css files
-const childStyle = {
-    margin: 'auto',
-};
-
-// JSX styling components need to move these into seperate css files
-const pStyle = {
-    margin: 0
-}
-
-// JSX styling components need to move these into seperate css files
-const pStyleHead = {
-    fontWeight: 'bold',
-    margin: 0
-}
-
-// JSX styling components need to move these into seperate css files
-const searchDivStyle = {
-  backgroundColor: 'white',
-  border: '2px solid #e6e6e6',
-  margin: 'auto',
-  width: '100%'
-}
 
 // global variables assigned based on drop down selections
 let dropDownYear = ""
@@ -118,92 +88,87 @@ class App extends React.Component {
       let comments = el.comments;
       if (comments === undefined) comments = ""
   
-      let year = el.year
-      let make = el.make
-      let model = el.model
-      let reason = el.reason
-      let lot = el.lot
-      let towReference = el.tow_reference
-      let vehicleID = el.vehicle_id
-      let vin = el.vin
+      let year = el.year,
+      make = el.make,
+      model = el.model,
+      reason = el.reason,
+      lot = el.lot,
+      towReference = el.tow_reference,
+      vehicleID = el.vehicle_id,
+      vin = el.vin,
 
-      // JSX component that will displayed if statement is true
-      let displayVehicleCell = 
-      <Auxiliary> 
-        <p style ={pStyleHead}> {year} {make} {model} </p>
-        <p style ={pStyle}> VIN: {vin} </p>
-        <p style ={pStyle}> Lot: {lot} </p>
-        <p style ={pStyle}> Reason: {reason} </p>
-        <p style ={pStyle}> Tow Reference: {towReference} </p>
-        <p style ={pStyle}> Vehicle ID: {vehicleID} </p>  
-        <p style ={pStyle}> Keys: {keys} </p>
-        <p style ={pStyle}> Comments: {comments} </p>
-      </Auxiliary> 
-
-      /*
-        Need to find a better to lay this out
-        Long if else statement based on if drop items are equal to
-        any of the iterated data
-      */
+      displayVehicleCell =
+      <VehicleCell 
+                key= {vehicleID} 
+                year = {year} 
+                make = {make} 
+                vin = {vin}
+                model = {model} 
+                reason = {reason}
+                lot = {lot} 
+                tow_reference = {towReference}
+                vehicle_id = {vehicleID}
+                k = {keys}
+                comment = {comments} />
 
       // search by only year
       if (year === dropDownYear && dropDownMake === "" && dropDownKey === "" && dropDownReason === "") {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> )
+        return ( <div> {displayVehicleCell} </div> )
       }
       // search by only make
       else if (make === dropDownMake && dropDownYear === "" && dropDownModel === "" && dropDownKey === "" && dropDownReason === "") {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> )  
+        return ( <div> {displayVehicleCell} </div>)  
       }
       // search only by keys
       else if (dropDownMake === "" && dropDownYear === "" && dropDownModel === "" && keys === dropDownKey && dropDownReason === "") {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> ) 
+        return ( <div> {displayVehicleCell} </div> ) 
       }
       // search only by reason
       else if (dropDownMake === "" && dropDownYear === "" && dropDownModel === "" && dropDownKey === "" && reason === dropDownReason) {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> ) 
+        return ( <div> {displayVehicleCell} </div> ) 
       }
       // search by only make and model
       else if (make === dropDownMake && dropDownYear === "" && model === dropDownModel && dropDownKey === "" && dropDownReason === "") {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> ) 
+        return ( <div> {displayVehicleCell} </div> ) 
       }
       // search by only make and year
       else if (make === dropDownMake && year === dropDownYear && dropDownModel === "" && dropDownKey === "" && dropDownReason === "") {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> ) 
+        return ( <div> {displayVehicleCell} </div> ) 
       }
       // search by only year and keys
       else if (dropDownMake === "" && year === dropDownYear && dropDownModel === "" && keys === dropDownKey && dropDownReason === "") {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> ) 
+        return ( <div> {displayVehicleCell} </div>) 
       }
       // search by only year and reason
       else if (dropDownMake === "" && year === dropDownYear && dropDownModel === "" && dropDownKey === "" && reason === dropDownReason) {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> ) 
+        return ( <div> {displayVehicleCell} </div> ) 
       }
       // search by make and reason
       else if (make === dropDownMake && dropDownYear === "" && dropDownModel === "" && dropDownKey === "" && reason === dropDownReason) {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> ) 
+        return ( <div> {displayVehicleCell} </div> ) 
       }
       // search by make and keys
       else if (make === dropDownMake && dropDownYear === "" && dropDownModel === "" && keys === dropDownKey && dropDownReason === "") {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> ) 
+        return ( <div> {displayVehicleCell} </div> ) 
       }
       // search by keys and reason
       else if (dropDownMake === "" && dropDownYear === "" && dropDownModel === "" && keys === dropDownKey && reason === dropDownReason) {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> ) 
+        return ( <div> {displayVehicleCell} </div> ) 
       }
       // search by year make model
       else if (make === dropDownMake && year === dropDownYear && model === dropDownModel && dropDownKey === "" && dropDownReason === "") {
-        return ( <div key={index} className={classes.App}> {displayVehicleCell} </div> ) 
-      }
+        return ( <div> {displayVehicleCell} </div> ) 
+      } 
     })
   
     // data that gets passed to index.js and is displayed
-    return <div style ={containerStyle}>
+    return <div className ={classes.containerStyle}>
       <Toolbar />   
-      <div style ={searchDivStyle}>
+      <div className ={classes.searchDivStyle}>
         <SearchFunctions />
         <SearchButton onClick={this.handleClick} />
       </div>
-      <div style ={childStyle}>{child}</div>
+      <div>{child}</div>
     </div>;
   }
 }

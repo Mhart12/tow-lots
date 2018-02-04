@@ -1,0 +1,18 @@
+body {
+    background-color: #F5FFFA;
+}
+
+.App {
+    margin: 5px;
+    padding: 15px;
+    width: 325px;
+    height: 200px;
+    display: inline-block;
+    border: 1px solid #F5FFFA;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 1px 1px #888888;
+    text-align: left;
+    font-size: 18px;
+}
+

@@ -70,11 +70,12 @@ class ShowResults extends React.Component {
     });
   }
 
-
-
 	render() {
 
-      const child = this.state.data.map((el, index) => {
+      let recordsLength = this.state.data.length;
+      let arr = [];
+
+      let child = this.state.data.map((el, index) => {
 
         let keys
         if (el.k === undefined) keys = "NO"
@@ -93,7 +94,7 @@ class ShowResults extends React.Component {
         vehicleID = el.vehicle_id,
         vin = el.vin,
 
-        displayVehicleCell =
+        displayVehicleCell = 
         <VehicleCell 
                   key= {vehicleID} 
                   year = {year} 
@@ -105,69 +106,97 @@ class ShowResults extends React.Component {
                   tow_reference = {towReference}
                   vehicle_id = {vehicleID}
                   k = {keys}
-                  comment = {comments} />
-
+                  comment = {comments}
+                  />
 
         // search by only year
         if (year === dropDownYear && dropDownMake === "" && dropDownKey === "" && dropDownReason === "") {
-          return ( <div> {displayVehicleCell} </div> )
+          arr.push(el)
+          recordsLength = arr.length
+          return displayVehicleCell
         }
         // search by only make
         else if (make === dropDownMake && dropDownYear === "" && dropDownModel === "" && dropDownKey === "" && dropDownReason === "") {
-          return ( <div> {displayVehicleCell} </div>)  
+          arr.push(el)
+          recordsLength = arr.length
+          return displayVehicleCell 
         }
         // search only by keys
         else if (dropDownMake === "" && dropDownYear === "" && dropDownModel === "" && keys === dropDownKey && dropDownReason === "") {
+          arr.push(el)
+          recordsLength = arr.length         
           return ( <div> {displayVehicleCell} </div> ) 
         }
         // search only by reason
         else if (dropDownMake === "" && dropDownYear === "" && dropDownModel === "" && dropDownKey === "" && reason === dropDownReason) {
+          arr.push(el)
+          recordsLength = arr.length          
           return ( <div> {displayVehicleCell} </div> ) 
         }
         // search by only make and model
         else if (make === dropDownMake && dropDownYear === "" && model === dropDownModel && dropDownKey === "" && dropDownReason === "") {
+          arr.push(el)
+          recordsLength = arr.length          
           return ( <div> {displayVehicleCell} </div> ) 
         }
         // search by only make and year
         else if (make === dropDownMake && year === dropDownYear && dropDownModel === "" && dropDownKey === "" && dropDownReason === "") {
+          arr.push(el)
+          recordsLength = arr.length          
           return ( <div> {displayVehicleCell} </div> ) 
         }
         // search by only year and keys
         else if (dropDownMake === "" && year === dropDownYear && dropDownModel === "" && keys === dropDownKey && dropDownReason === "") {
+          arr.push(el)
+          recordsLength = arr.length          
           return ( <div> {displayVehicleCell} </div>) 
         }
         // search by only year and reason
         else if (dropDownMake === "" && year === dropDownYear && dropDownModel === "" && dropDownKey === "" && reason === dropDownReason) {
+          arr.push(el)
+          recordsLength = arr.length          
           return ( <div> {displayVehicleCell} </div> ) 
         }
         // search by make and reason
         else if (make === dropDownMake && dropDownYear === "" && dropDownModel === "" && dropDownKey === "" && reason === dropDownReason) {
+          arr.push(el)
+          recordsLength = arr.length          
           return ( <div> {displayVehicleCell} </div> ) 
         }
         // search by make and keys
         else if (make === dropDownMake && dropDownYear === "" && dropDownModel === "" && keys === dropDownKey && dropDownReason === "") {
+          arr.push(el)
+          recordsLength = arr.length          
           return ( <div> {displayVehicleCell} </div> ) 
         }
         // search by keys and reason
         else if (dropDownMake === "" && dropDownYear === "" && dropDownModel === "" && keys === dropDownKey && reason === dropDownReason) {
+          arr.push(el)
+          recordsLength = arr.length          
           return ( <div> {displayVehicleCell} </div> ) 
         }
         // search by year make model
         else if (make === dropDownMake && year === dropDownYear && model === dropDownModel && dropDownKey === "" && dropDownReason === "") {
+          arr.push(el)
+          recordsLength = arr.length          
           return ( <div> {displayVehicleCell} </div> )  
         } 
         // display all items when all search queries are blank  
         else if (dropDownYear === "" && dropDownMake === "" && dropDownKey === "" && dropDownReason === "")  {
+          arr.push(el)
+          recordsLength = arr.length          
           return ( <div> {displayVehicleCell} </div> )
-        }
-       
+        } 
+
+        return null
       })
 
     return <div>
       <div className = {classes.ShowResults}>
         <SearchButton onClick={this.displayItems} />
       </div>  
-      <div>{child}</div>
+      <div className = {classes.Records}> Displaying {recordsLength} records </div>
+      <div> {child} </div>
     </div>;
 
 	}

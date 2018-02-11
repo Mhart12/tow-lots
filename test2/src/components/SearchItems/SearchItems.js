@@ -128,44 +128,45 @@ class searchFunctions extends React.Component {
     		});
   		});
 
-
 		return <div className = {classes.SearchItems}> 
 			<table>
-				<tr>
-					<td> Year </td>
-					<td>
-						<select id = "yearDropDown"> </select>
-					</td>	
-					<td> Make </td>
-					<td>
-						<select id = "makeDropDown" style = {{width: '150px'}}> </select>
-					</td>
+				<tbody>
+					<tr>
+						<td> Year </td>
+						<td>
+							<select id = "yearDropDown"> </select>
+						</td>	
+						<td> Make </td>
+						<td>
+							<select id = "makeDropDown" style = {{width: '150px'}}> </select>
+						</td>
 
-					<td> Model </td>
-					<td>
-						<select id = "modelDropDown" style = {{width: '150px'}}> </select>
-					</td>	
-					<td> Keys </td>
-					<td>
-						<select id = "keyDropDown">
-							<option value= ""></option>
-							<option value= "YES"> YES </option>
-							<option value= "NO"> NO </option>
-						</select>
-					</td>
-					<td> Reason </td>
-					<td>
-						<select id = 'reasonDropDown'>
-							<option value= ''> </option>
-							<option value= 'ABANDONED'> ABANDONED </option>
-							<option value= 'ACCIDENT'> ACCIDENT </option>
-							<option value= 'ARREST'> ARREST </option>
-							<option value= 'ILLEGALLY PARKED'> ILLEGALLY PARKED</option>
-							<option value= 'OTHER'> OTHER </option>
-							<option value= 'STOLEN'> STOLEN </option>	
-						</select>
-					</td>
-				</tr>				
+						<td> Model </td>
+						<td>
+							<select id = "modelDropDown" style = {{width: '150px'}}> </select>
+						</td>	
+						<td> Keys </td>
+						<td>
+							<select id = "keyDropDown">
+								<option value= ""></option>
+								<option value= "YES"> YES </option>
+								<option value= "NO"> NO </option>
+							</select>
+						</td>
+						<td> Reason </td>
+						<td>
+							<select id = 'reasonDropDown'>
+								<option value= ''> </option>
+								<option value= 'ABANDONED'> ABANDONED </option>
+								<option value= 'ACCIDENT'> ACCIDENT </option>
+								<option value= 'ARREST'> ARREST </option>
+								<option value= 'ILLEGALLY PARKED'> ILLEGALLY PARKED</option>
+								<option value= 'OTHER'> OTHER </option>
+								<option value= 'STOLEN'> STOLEN </option>	
+							</select>
+						</td>
+					</tr>
+				</tbody>				
 			</table>
 		</div>
 	}

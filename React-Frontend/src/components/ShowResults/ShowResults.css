@@ -8,3 +8,8 @@
 .Records {
 	font-weight: bold;
 }
+
+.Error {
+	color:red;
+	font-weight: bold;
+}

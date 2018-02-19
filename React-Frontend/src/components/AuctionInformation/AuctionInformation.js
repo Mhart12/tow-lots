@@ -7,7 +7,7 @@ class AuctionInformation extends React.Component {
 render() {
 
   var year = new Date().getFullYear()
-  var month = new Date().getMonth() + 1
+  var month = new Date().getMonth();
   var day = new Date().getDay()
 
   function thirdTuesdayOfMonth(day, n, date) {                                                                                              

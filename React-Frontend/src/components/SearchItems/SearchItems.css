@@ -1,3 +1,8 @@
+.ErrorMessage {
+	color: red;
+	display: none;
+}
+
 table {
 	margin: auto;
 	padding: 20px;
@@ -43,3 +48,4 @@ only screen and (max-width: 760px),
 		white-space: nowrap;
 	}
 }
+

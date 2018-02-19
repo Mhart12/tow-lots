@@ -10,8 +10,6 @@ class searchFunctions extends React.Component {
 
 	  	this.state = {
 	      data: [],
-	      makes: [],
-	      years: []
 	    };
 	}
 
@@ -22,153 +20,190 @@ class searchFunctions extends React.Component {
 	        this.setState({ 
 	          data: data,
 	        });
-
-	        // create array of available years, remove duplicates, sort from big to small
-		    let years = this.state.data.map((el, index) => { return el.year })
-		    let filteredYearsArray = years.filter(function(el, index) {
-				return years.indexOf(el) === index;
-			})
-		    filteredYearsArray.sort((a,b) => {return b-a })
-
-		    // create array of available makes, remove duplicates, sort alphabetically
-			let makes = this.state.data.map((el, index) => { return el.make })
-		    let filteredMakesArray = makes.filter(function(el, index) {
-				return makes.indexOf(el) === index;
-			})
-			filteredMakesArray.sort(function (a, b) {
-		      if (b > a) return -1;
-		      else if (b < a) return 1;
-		      return 0;
-		    });
-
-		    this.setState({
-            	makes: filteredMakesArray,
-            	years: filteredYearsArray,
-        	})
-
 	    }).catch((err)=> {})
 	}
 
 	render() {
 
-		let json = this.state.data
-		let makesArray = this.state.makes
-		let yearsArray = this.state.years
+		let data = this.state.data
 
-		// append years to drop list 
-		$('#yearDropDown').empty();
-		$('#yearDropDown').append($('<option></option>').val("").html(""));
-		$.each(yearsArray, function(i, p) {
-		    $('#yearDropDown').append($('<option></option>').val(p).html(p));
+		let years = this.state.data.map((el, index) => { return el.year })
+		let yearsArray = years.filter((el, index) => {
+			return years.indexOf(el) === index;
+		}).sort((a,b) => { return b-a })
+
+		let makes = this.state.data.map((el, index) => { return el.make })
+		let makesArray = makes.filter((el, index) => {
+			return makes.indexOf(el) === index;
+		})
+		makesArray.sort((a, b) => {
+		   if (b > a) return -1;
+		    else if (b < a) return 1;
+		    return 0;
 		});
 
-		// append makes to drop list
-		$('#makeDropDown').empty();
-		$('#makeDropDown').append($('<option></option>').val("").html(""));
-		$.each(makesArray, function(i, p) {
-		    $('#makeDropDown').append($('<option></option>').val(p).html(p));
-		});
+		const createDropDown = (id, arr) => {
+			$(id).empty();
+			$(id).append($('<option></option>').val("").html(""));
+			$.each(arr, function(i, p) {
+			    $(id).append($('<option></option>').val(p).html(p));
+			});
+		}
 
-		// when make is selected, show available models in model dropdown
-		$(function() {
-    		$("#makeDropDown").on("change",function() {
-      			let selectedMake = this.value;
+		createDropDown ('#yearDropDownMax', yearsArray)
+		createDropDown ('#yearDropDownMin', yearsArray)
+		createDropDown ('#makeDropDown', makesArray)
 
-      			// find objects that are equal to selected make ie BMW, FORD
-				let filterByMake = json.filter((el, index) => {
-					return el.make === selectedMake;
+		let selectedMake = ""
+		let selectedMaxYear = ""
+		let selectedMinYear = ""
+		
+		$("#makeDropDown").on("change",function() {
+  			selectedMake = this.value;
+  			let modelsArray;
+
+  			if (selectedMaxYear !== "" && selectedMinYear === "" ) {
+  				modelsArray = data.filter((el, index) => {
+				return el.make === selectedMake && el.year <= selectedMaxYear
 				})
-
-				// return only the model names
-				let modelsArray = filterByMake.map((el, index) => { 
-					return el.model
+  			} else if (selectedMaxYear !== "" && selectedMinYear !== "") {
+  				modelsArray = data.filter((el, index) => {
+				return el.make === selectedMake && el.year <= selectedMaxYear && el.year >= selectedMinYear
 				})
-
-				// remove any duplicate model names
-				modelsArray = modelsArray.filter(function(el, index) {
-					return modelsArray.indexOf(el) === index;
+  			} else if (selectedMaxYear === "" && selectedMinYear !== "") {
+  				modelsArray = data.filter((el, index) => {
+				return el.make === selectedMake && el.year >= selectedMinYear
 				})
+  			} else {
+  				modelsArray = data.filter((el, index) => {
+				return el.make === selectedMake;
+				})
+  			}
 
-				// append to drop down list
-				$('#modelDropDown').empty();
-				$('#modelDropDown').append($('<option></option>').val("").html(""));
-				$.each(modelsArray, function(i, p) {
-				    $('#modelDropDown').append($('<option></option>').val(p).html(p));
-				});			
-    		});
+			modelsArray = modelsArray.map((el, index) => { 
+				return el.model
+			})
+
+			modelsArray = modelsArray.filter((el, index) => {
+				return modelsArray.indexOf(el) === index;
+			}).sort((a, b) => {
+				if (b > a) return -1;
+				else if (b < a) return 1;
+			    return 0;
+			});
+
+			createDropDown ('#modelDropDown', modelsArray)	
   		});
 
-		// when year is selected, show available makes in make dropdown 
-		$(function() {
-    		$("#yearDropDown").on("change",function() {
-      			let selectedYear = this.value;
-
-      			// find objects that are equal to selected year
-				let filterByYear = json.filter((el, index) => {
-					return el.year === selectedYear;
+		$("#yearDropDownMax").on("change",function() {
+  			selectedMaxYear = this.value;
+  			let makesArr;
+  			if (selectedMinYear !== "" ) {
+  				makesArr = data.filter((el, index) => {
+				return el.year <= selectedMaxYear && el.year >= selectedMinYear
 				})
-
-				// return only the model names
-				let yearsArr = filterByYear.map((el, index) => { 
-					return el.make
+  			} else {
+  				makesArr = data.filter((el, index) => {
+				return el.year <= selectedMaxYear
 				})
+  			}
 
-				// remove any duplicate model names
-				yearsArr = yearsArr.filter(function(el, index) {
-					return yearsArr.indexOf(el) === index;
-				})
+			makesArr = makesArr.map((el, index) => { 
+				return el.make
+			})
+			makesArr = makesArr.filter((el, index) => {
+				return makesArr.indexOf(el) === index;
+			}).sort((a, b) => {
+				if (b > a) return -1;
+				else if (b < a) return 1;
+				return 0;
+			});
+			createDropDown ('#makeDropDown', makesArr)	
 
-				// append to drop down list
-				$('#makeDropDown').empty();
-				$('#modelDropDown').empty();
-				$('#makeDropDown').append($('<option></option>').val("").html(""));
-				$.each(yearsArr, function(i, p) {
-				    $('#makeDropDown').append($('<option></option>').val(p).html(p));
-				});			
-    		});
+			if (selectedMaxYear === "" && selectedMinYear === "") {
+				createDropDown ('#makeDropDown', makesArray)	
+			}	
   		});
 
-		return <div className = {classes.SearchItems}> 
-			<table>
-				<tbody>
-					<tr>
-						<td> Year </td>
-						<td>
-							<select id = "yearDropDown"> </select>
-						</td>	
-						<td> Make </td>
-						<td>
-							<select id = "makeDropDown" style = {{width: '150px'}}> </select>
-						</td>
 
-						<td> Model </td>
-						<td>
-							<select id = "modelDropDown" style = {{width: '150px'}}> </select>
-						</td>	
-						<td> Keys </td>
-						<td>
-							<select id = "keyDropDown">
-								<option value= ""></option>
-								<option value= "YES"> YES </option>
-								<option value= "NO"> NO </option>
-							</select>
-						</td>
-						<td> Reason </td>
-						<td>
-							<select id = 'reasonDropDown'>
-								<option value= ''> </option>
-								<option value= 'ABANDONED'> ABANDONED </option>
-								<option value= 'ACCIDENT'> ACCIDENT </option>
-								<option value= 'ARREST'> ARREST </option>
-								<option value= 'ILLEGALLY PARKED'> ILLEGALLY PARKED</option>
-								<option value= 'OTHER'> OTHER </option>
-								<option value= 'STOLEN'> STOLEN </option>	
-							</select>
-						</td>
-					</tr>
-				</tbody>				
-			</table>
-		</div>
+		// max year clicked and unclicked... model === blank? 
+		$("#yearDropDownMin").on("change",function() {
+  			selectedMinYear = this.value;
+  			let makesArr;
+  			if (selectedMaxYear !== "" ) {
+  				makesArr = data.filter((el, index) => {
+				return el.year <= selectedMaxYear && el.year >= selectedMinYear
+				})
+  			} else {
+  				makesArr = data.filter((el, index) => {
+				return el.year >= selectedMinYear
+				})
+  			}
+  			makesArr = makesArr.map((el, index) => { 
+				return el.make
+			})
+			makesArr = makesArr.filter(function(el, index) {
+				return makesArr.indexOf(el) === index;
+			}).sort(function (a, b) {
+				if (b > a) return -1;
+				else if (b < a) return 1;
+				return 0;
+			});
+			createDropDown ('#makeDropDown', makesArr)	
+
+			if (selectedMinYear === "" && selectedMaxYear === "") {
+				createDropDown ('#makeDropDown', makesArray)	
+			}		
+  		});
+
+		return (
+			<div className = {classes.SearchItems}> 
+				<table>
+					<tbody>
+						<tr>
+						<td> Min Year </td>
+							<td>
+								<select id = "yearDropDownMin"> </select>
+							</td>
+							<td> Max Year </td>
+							<td>
+								<select id = "yearDropDownMax"> </select>
+							</td>	
+
+							<td> Make </td>
+							<td>
+								<select id = "makeDropDown" style = {{width: '150px'}}> </select>
+							</td>
+
+							<td> Model </td>
+							<td>
+								<select id = "modelDropDown" style = {{width: '150px'}}> </select>
+							</td>	
+							<td> Keys </td>
+							<td>
+								<select id = "keyDropDown">
+									<option value= ""></option>
+									<option value= "YES"> YES </option>
+									<option value= "NO"> NO </option>
+								</select>
+							</td>
+							<td> Reason </td>
+							<td>
+								<select id = 'reasonDropDown'>
+									<option value= ''> </option>
+									<option value= 'ABANDONED'> ABANDONED </option>
+									<option value= 'ACCIDENT'> ACCIDENT </option>
+									<option value= 'ARREST'> ARREST </option>
+									<option value= 'ILLEGALLY PARKED'> ILLEGALLY PARKED</option>
+									<option value= 'OTHER'> OTHER </option>
+									<option value= 'STOLEN'> STOLEN </option>	
+								</select>
+							</td>
+						</tr>
+					</tbody>				
+				</table>
+			</div>
+		)
 	}
 }
 

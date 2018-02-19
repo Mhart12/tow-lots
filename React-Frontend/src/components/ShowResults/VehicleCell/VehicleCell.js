@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'firebase';
 
 import classes from './VehicleCell.css';
 
@@ -6,10 +7,23 @@ class vehicleCell extends React.Component {
     constructor(props) {
         super(props);
         this.saveItem = this.saveItem.bind(this);
+        this.state = {
+            vehicle: '',
+            user: ''
+        };
     }
 
     saveItem() {
-        alert(`Saving ${this.props.year} ${this.props.make} ${this.props.model}`)
+        let dbCon = firebase.database().ref('savedVehicles');
+        dbCon.push({
+            vehicle: this.props,
+            user: '123'
+        })
+        this.setState({
+            vehicle: '',
+            user: ''
+        });
+        alert(`Saving...`)
     }   
 
     render() {

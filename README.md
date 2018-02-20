@@ -1,6 +1,6 @@
 # tow-lots
 
-This project is up for adoption.
+Working version of this project is here: https://mysterious-sands-83398.herokuapp.com/
 
 ## Problem Statement
 

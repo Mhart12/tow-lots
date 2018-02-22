@@ -2,13 +2,15 @@
     width: 90%;
     height: 100%;
     display: inline-block;
-    border: 1px solid #F5FFFA;
+    border: 1px solid #737373;
     border-radius: 3px;
     background-color: white;
     box-shadow: 1px 1px #888888;
     text-align: left;
     font-size: 18px;
+    margin: 5px;
 }
+
 
 p {
     margin: 0
@@ -19,7 +21,8 @@ h4 {
 }
 
 .vehicleCell:hover {
-    border: 2px solid #D3D3D3;
+    border: 1px solid #21262c;
+    box-shadow: 3px 3px #888888;
 }
 
 .WishList {
@@ -55,4 +58,8 @@ img {
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+.vinCell {
+  text-align: center;
 }

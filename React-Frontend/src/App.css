@@ -1,5 +1,5 @@
 body {
-    background-color: #F5FFFA;
+    background-color: #edf2f7;
 }
 
 .containerStyle {
@@ -10,8 +10,8 @@ body {
 .searchDivStyle {
   background-color: white;
   border-style: solid;
-  border-color: #e6e6e6;
-  border-width: 2px 2px 0px 2px;
+  border-color: #737373;
+  border-width: 1px 1px 0px 1px;
   margin: auto;
   width: 100%;
 }

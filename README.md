@@ -1,3 +1,9 @@
+##Steps to run front-end:
+
+1. npm install
+2. npm start
+
+
 # tow-lots
 
 Working version of this project is here: https://mysterious-sands-83398.herokuapp.com/
@@ -7,7 +13,7 @@ Working version of this project is here: https://mysterious-sands-83398.herokuap
 KCMO runs monthly auctions of cars and other items (boats,
 scooters, etc) that are unclaimed from city tow lots, but
 information about the items up for auction isn’t easily accessible
-by salvage dealers. A list of the vehicles up for auction is available online that includes limited information about the condition of the vehicles. The minimal user interface fosters a limited market of buyers, reducing revenue and resulting in fewer vehicles being sold. 
+by salvage dealers. A list of the vehicles up for auction is available online that includes limited information about the condition of the vehicles. The minimal user interface fosters a limited market of buyers, reducing revenue and resulting in fewer vehicles being sold.
 
 There is an opportunity to increase revenue, increase sales, reduce waste (into the
 landfill), or even connect more people to low cost vehicles with
@@ -23,7 +29,7 @@ A MVP might allow the buyer is able to see all items, narrow items by search & f
 
 ### Avaliable Data
 
-The list of auction items is online at  [https://data.kcmo.org/Traffic/Kansas-City-Monthly-Car-Auction/2uje-k9n5](https://data.kcmo.org/Traffic/Kansas-City-Monthly-Car-Auction/2uje-k9n5).  This page will show you the existing data 
+The list of auction items is online at  [https://data.kcmo.org/Traffic/Kansas-City-Monthly-Car-Auction/2uje-k9n5](https://data.kcmo.org/Traffic/Kansas-City-Monthly-Car-Auction/2uje-k9n5).  This page will show you the existing data
 and how to download it or ascdess it using a RESTful API (JSON).  It also contains documentation about the data.
 
 * Lot #

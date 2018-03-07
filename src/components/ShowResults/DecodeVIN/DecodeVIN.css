@@ -1,3 +1,31 @@
+.popOut {
+  text-align: center;
+}
+
+.popOut table {
+  margin: auto;
+}
+
+.popOut_inner td, .popOut_inner tr  {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.Info {
+  box-shadow: 3px 3px #888888;
+}
+
+.Info:hover {
+  background-color: #ebf6f9;
+}
+
+.ID {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  box-shadow: 3px 3px #888888;
+}
+
 .Hide {
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -13,7 +41,7 @@
   font-size: 20px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
-  margin-bottom: 5px;
+  margin: 10px;
 }
 
 .Hide:hover {
@@ -24,25 +52,4 @@
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
-}
-
-.popup_inner td, .popup_inner tr  {
-  padding: 10px;
-  border: 1px solid black;
-  border-radius: 3px; 
-  text-align: left;   
-}
-
-.Info {
-  box-shadow: 3px 3px #888888;
-}
-
-.Info:hover {
-  background-color: #ebf6f9;
-}
-
-.ID {
-  background-color: #f2f2f2;
-  font-weight: bold;
-  box-shadow: 3px 3px #888888;
 }

@@ -13,7 +13,7 @@ class searchFunctions extends React.Component {
 	    };
 	}
 
-	//For radio button checked
+	//For selecting radio button checked
 	handleRadioButton(value) {
   	this.setState({
     	value: value

@@ -22,9 +22,23 @@ $(function() {
   });
 });
 
+//Radiobutton for Yes Keys
+//may want to change dropDownKey variable name to something else
 $(function() {
   $("#keyDropDown").on("change",function() {
-    dropDownKey = this.value;
+      dropDownKey = this.value;
+      console.info(this);
+      console.info(this.value);
+  });
+});
+
+//Added by for radio button No keys
+//Uses different id
+$(function() {
+  $("#keyDropDown2").on("change",function() {
+      dropDownKey = this.value;
+      console.info(this);
+      console.info(this.value);
   });
 });
 

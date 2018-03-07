@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 
 import classes from './AuctionInformation.css'
 
@@ -10,18 +10,18 @@ render() {
   var month = new Date().getMonth();
   var day = new Date().getDay()
 
-  function thirdTuesdayOfMonth(day, n, date) {                                                                                              
-      var count = 0; 
-      var idate = new Date(date);                                                                                                       
+  function thirdTuesdayOfMonth(day, n, date) {
+      var count = 0;
+      var idate = new Date(date);
 
-      idate.setDate(1);                                                                                                                 
+      idate.setDate(1);
 
-      while ((count) < n) {                                                                                                             
+      while ((count) < n) {
         idate.setDate(idate.getDate() + 1);
         if (idate.getDay() === day) {
-          count++;                                                                                                                      
-        }                                                                                                                               
-      }          
+          count++;
+        }
+      }
 
     return idate.toString()
   }
@@ -30,10 +30,10 @@ render() {
 
     return (
       <div className = {classes.nextAuction}>
-        <p> Next Auction: {nextAuction} </p>
+        Next Auction: {nextAuction}
       </div>
     );
-  }  
+  }
 }
 
 export default AuctionInformation;

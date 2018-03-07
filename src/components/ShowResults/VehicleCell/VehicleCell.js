@@ -1,6 +1,6 @@
 import React from 'react';
 
-import $ from 'jquery'; 
+import $ from 'jquery';
 import firebase from 'firebase';
 
 import classes from './VehicleCell.css';
@@ -11,6 +11,7 @@ class vehicleCell extends React.Component {
         super(props);
         this.saveItem = this.saveItem.bind(this);
         this.getVinInformation = this.getVinInformation.bind(this);
+        this.getPhotos = this.getPhotos.bind(this)
         this.state = {
             vehicle: '',
             user: '',
@@ -45,14 +46,18 @@ class vehicleCell extends React.Component {
             vehicle: '',
             user: ''
         });
-    }   
+    }
+
+    getPhotos() {
+      alert('Open New Pictures')
+    }
 
     getVinInformation () {
 
         let transmission, driveType, ABS, bodyClass, engineHP, vehicleType, doors, displacementCC,
             engineCylinders, engineConfig, fuelType, frontAirBag, length, weight, seatBelts
 
-        $.ajax({ 
+        $.ajax({
             url: "https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVINValuesBatch/",
             async: false,
             type: "POST",
@@ -66,7 +71,7 @@ class vehicleCell extends React.Component {
                 ABS = result.Results[0].ABS
                 bodyClass = result.Results[0].BodyClass
                 engineHP = result.Results[0].EngineHP
-                vehicleType = result.Results[0].VehicleType 
+                vehicleType = result.Results[0].VehicleType
                 doors = result.Results[0].Doors
                 displacementCC = result.Results[0].DisplacementCC
                 engineCylinders = result.Results[0].EngineCylinders
@@ -98,7 +103,6 @@ class vehicleCell extends React.Component {
             length: length,
             weight: weight,
             seatBelts: seatBelts
-
         })
     }
 
@@ -116,44 +120,44 @@ class vehicleCell extends React.Component {
                                     <p> Lot: {this.props.lot} </p>
                                     <p> Reason: {this.props.reason} </p>
                                     <p> Tow Reference: {this.props.tow_reference} </p>
-                                    <p> Vehicle ID: {this.props.vehicle_id} </p>  
+                                    <p> Vehicle ID: {this.props.vehicle_id} </p>
                                     <p> Keys: {this.props.k} </p>
                                     <p> Comments: {this.props.comments} </p>
                                 </td>
                                 <td>
-                                    <img alt = "vehiclePic" src="http://www.kia.com/content/dam/kwcms/au/en/images/category/Kia-Rio-small-car-hatch-red.png" />
+                                    <img
+                                      alt = "vehiclePic"
+                                      src="http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"
+                                      onClick = {this.getPhotos}  />
                                 </td>
                                 <td>
-                                    <button className = {classes.saveButton} onClick = {this.saveItem}> Save Vehicle </button>
-                                    <button className = {classes.saveButton} 
+                                    <button className = {classes.expandButton}
                                             onClick = {this.getVinInformation.bind(this)}> {this.state.infoButton} Vehicle Information </button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div className = {classes.vinCell}>
-                    {this.state.showPopup ? 
-                            <DecodeVIN 
-                                transmission = {this.state.transmission}
-                                driveType = {this.state.driveType}
-                                ABS = {this.state.ABS}
-                                bodyClass = {this.state.bodyClass}
-                                engineHP = {this.state.engineHP}
-                                vehicleType = {this.state.vehicleType}
-                                doors = {this.state.doors}
-                                displacementCC = {this.state.displacementCC}
-                                engineCylinders = {this.state.engineCylinders}
-                                engineConfig = {this.state.engineConfig}
-                                fuelType = {this.state.fuelType}
-                                frontAirBag = {this.state.frontAirBag}
-                                length = {this.state.length}
-                                weight = {this.state.weight}
-                                seatBelts = {this.state.seatBelts}
-                                closePopup = {this.getVinInformation.bind(this)}
-                            /> : null
-                        }
-                </div>
+                    {this.state.showPopup ?
+                        <DecodeVIN
+                            transmission = {this.state.transmission}
+                            driveType = {this.state.driveType}
+                            ABS = {this.state.ABS}
+                            bodyClass = {this.state.bodyClass}
+                            engineHP = {this.state.engineHP}
+                            vehicleType = {this.state.vehicleType}
+                            doors = {this.state.doors}
+                            displacementCC = {this.state.displacementCC}
+                            engineCylinders = {this.state.engineCylinders}
+                            engineConfig = {this.state.engineConfig}
+                            fuelType = {this.state.fuelType}
+                            frontAirBag = {this.state.frontAirBag}
+                            length = {this.state.length}
+                            weight = {this.state.weight}
+                            seatBelts = {this.state.seatBelts}
+                            closePopup = {this.getVinInformation.bind(this)}
+                        /> : null
+                    }
             </div>
         )
     }

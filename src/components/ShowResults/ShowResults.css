@@ -3,6 +3,8 @@
 	border-style: solid;
 	border-color: #737373;
 	border-width: 0px 1px 1px 1px;
+	margin: auto;
+  width: 100%;
 }
 
 .Records {

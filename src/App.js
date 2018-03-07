@@ -26,8 +26,8 @@ class App extends React.Component {
 
     return <div className ={classes.containerStyle}>
       <Toolbar />
-      <AuctionInformation />   
       <div className ={classes.searchDivStyle}>
+        <AuctionInformation />
         <SearchItems/>
       </div>
       <ShowResults />
@@ -36,5 +36,4 @@ class App extends React.Component {
   }
 }
 
-export default App 
-
+export default App

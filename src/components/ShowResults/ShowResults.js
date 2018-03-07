@@ -1,10 +1,10 @@
 import React from 'react';
 import $ from 'jquery';
-import axios from 'axios'; 
+import axios from 'axios';
 
 import classes from './ShowResults.css'
 import VehicleCell from './VehicleCell/VehicleCell'
-import ResetButton from './ResetButton/ResetButton'
+import ResetButton from '../SearchItems/ResetButton/ResetButton'
 import SearchButton from '../SearchItems/SearchButton/SearchButton'
 import Spinner from '../Spinner/Spinner'
 
@@ -66,7 +66,7 @@ class ShowResults extends React.Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
       data: [],
       clicked: false,
@@ -79,7 +79,7 @@ class ShowResults extends React.Component {
     axios
       .get('https://data.kcmo.org/resource/xpwx-fzzw.json')
       .then(({data})=> {
-        this.setState({ 
+        this.setState({
           data: data,
           loading: false
         });
@@ -97,16 +97,16 @@ class ShowResults extends React.Component {
   }
 
 	render() {
- 
+
       let itemsFoundArr = [];
       let errorMessage = ''
       let recordsLength;
       let child;
-      
+
       if (this.state.loading) {
         child = <Spinner />
         recordsLength = 'Loading...'
-      } else {       
+      } else {
         child = this.state.data.map((el, index) => {
 
           let keys
@@ -116,7 +116,7 @@ class ShowResults extends React.Component {
 
           let comments = el.comments
           if (comments === undefined) comments = ""
-      
+
           let year = el.year,
           make = el.make,
           model = el.model,
@@ -125,15 +125,15 @@ class ShowResults extends React.Component {
           towReference = el.tow_reference,
           vehicleID = el.vehicle_id,
           vin = el.vin,
-          displayVehicleCell = 
-          <VehicleCell 
-              key= {vehicleID} 
-              year = {year} 
-              make = {make} 
+          displayVehicleCell =
+          <VehicleCell
+              key= {vehicleID}
+              year = {year}
+              make = {make}
               vin = {vin}
-              model = {model} 
+              model = {model}
               reason = {reason}
-              lot = {lot} 
+              lot = {lot}
               tow_reference = {towReference}
               vehicle_id = {vehicleID}
               k = {keys}
@@ -144,7 +144,7 @@ class ShowResults extends React.Component {
             itemsFoundArr.push(el)
             return displayVehicleCell
           }
-          // search between max year AND min year 
+          // search between max year AND min year
           else if (year >= dropDownYearMin && year <= dropDownYearMax && dropDownMake === "" && dropDownModel === "" && dropDownKey === "" && dropDownReason === "") {
             itemsFoundArr.push(el)
             return displayVehicleCell
@@ -166,7 +166,7 @@ class ShowResults extends React.Component {
           }
           // search by max year AND make AND model
           else if (make === dropDownMake && year <= dropDownYearMax && dropDownYearMin === 0 && model === dropDownModel && dropDownKey === "" && dropDownReason === "") {
-            itemsFoundArr.push(el)         
+            itemsFoundArr.push(el)
             return displayVehicleCell
           }
           // search ONLY by max year
@@ -181,47 +181,47 @@ class ShowResults extends React.Component {
           }
           // search ONLY by keys
           else if (dropDownYearMax === 3000 && dropDownYearMin === 0 && dropDownMake === "" && dropDownModel === "" && keys === dropDownKey && dropDownReason === "") {
-            itemsFoundArr.push(el)       
+            itemsFoundArr.push(el)
             return displayVehicleCell
           }
           // search ONLY by reason
           else if (dropDownMake === "" && dropDownYearMax === 3000 && dropDownYearMin === 0 && dropDownModel === "" && dropDownKey === "" && reason === dropDownReason) {
-            itemsFoundArr.push(el)        
-            return displayVehicleCell 
+            itemsFoundArr.push(el)
+            return displayVehicleCell
           }
           // search by make AND model
           else if (make === dropDownMake && dropDownYearMax === 3000 && model === dropDownModel && dropDownKey === "" && dropDownReason === "") {
-            itemsFoundArr.push(el)         
+            itemsFoundArr.push(el)
             return displayVehicleCell
           }
           // search by make AND max year
           else if (make === dropDownMake && year === dropDownYearMax && dropDownYearMin === 0  && dropDownModel === "" && dropDownKey === "" && dropDownReason === "") {
-            itemsFoundArr.push(el)       
+            itemsFoundArr.push(el)
             return displayVehicleCell
           }
           // search by max year AND keys
           else if (dropDownMake === "" && year === dropDownYearMax && dropDownYearMin === 0 && dropDownModel === "" && keys === dropDownKey && dropDownReason === "") {
-            itemsFoundArr.push(el)        
+            itemsFoundArr.push(el)
             return displayVehicleCell
           }
           // search by max year AND reason
           else if (dropDownMake === "" && year === dropDownYearMax && dropDownYearMin === 0  && dropDownModel === "" && dropDownKey === "" && reason === dropDownReason) {
-            itemsFoundArr.push(el)          
+            itemsFoundArr.push(el)
             return displayVehicleCell
           }
           // search by make AND reason
           else if (make === dropDownMake && dropDownYearMax === 3000 && dropDownYearMin === 0  && dropDownModel === "" && dropDownKey === "" && reason === dropDownReason) {
-            itemsFoundArr.push(el)        
+            itemsFoundArr.push(el)
             return displayVehicleCell
           }
           // search by make AND keys
           else if (make === dropDownMake && dropDownYearMax === 3000 && dropDownYearMin === 0 && dropDownModel === "" && keys === dropDownKey && dropDownReason === "") {
-            itemsFoundArr.push(el)         
+            itemsFoundArr.push(el)
             return displayVehicleCell
           }
           // search by keys AND reason
           else if (dropDownMake === "" && dropDownYearMax === 3000 && dropDownYearMin === 0 && dropDownModel === "" && keys === dropDownKey && reason === dropDownReason) {
-            itemsFoundArr.push(el)         
+            itemsFoundArr.push(el)
             return displayVehicleCell
           }
           // search between max year AND min year AND make AND model
@@ -244,7 +244,7 @@ class ShowResults extends React.Component {
             itemsFoundArr.push(el)
             return displayVehicleCell
           }
-          // search between max year AND min year AND make AND model AND reason 
+          // search between max year AND min year AND make AND model AND reason
           else if (year >= dropDownYearMin && year <= dropDownYearMax && dropDownMake === make && dropDownModel === model && dropDownKey === "" && dropDownReason === reason) {
             itemsFoundArr.push(el)
             return displayVehicleCell
@@ -254,16 +254,16 @@ class ShowResults extends React.Component {
             itemsFoundArr.push(el)
             return displayVehicleCell
           }
-          // display all items when all search queries are blank  
+          // display all items when all search queries are blank
           else if (dropDownYearMax === 3000 && dropDownYearMin === 0 && dropDownMake === "" && dropDownKey === "" && dropDownReason === "")  {
-            itemsFoundArr.push(el)      
+            itemsFoundArr.push(el)
             return displayVehicleCell
           }
 
           return null
         })
       }
- 
+
     // if no items are pushed into the array from above if statements and child has rendered already.. show error message
     if (itemsFoundArr.length === 0 && child.length > 0) {
       errorMessage = 'No results found. Please change your search parameters and try again.'
@@ -272,14 +272,14 @@ class ShowResults extends React.Component {
     // show how many items were found with current search query
     if (itemsFoundArr.length > 0) {
       recordsLength = `Displaying ${itemsFoundArr.length} records`
-    } 
+    }
 
     return (
         <div>
           <div className = {classes.ShowResults}>
             <SearchButton onClick={this.displayItems} />
             <ResetButton onClick={this.resetSearch}/>
-          </div>  
+          </div>
           <div className = {classes.Error}> {errorMessage} </div>
           <div className = {classes.Records}> {recordsLength} </div>
           <div> {child} </div>

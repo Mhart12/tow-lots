@@ -13,6 +13,16 @@ class searchFunctions extends React.Component {
 	    };
 	}
 
+	//For radio button checked
+	handleRadioButton(value) {
+  	this.setState({
+    	value: value
+  	});
+
+		//console.log("Radiobutton selected: " + value)
+	}
+
+
 	componentWillMount(){
 	    axios
 	      .get('https://data.kcmo.org/resource/xpwx-fzzw.json')
@@ -179,32 +189,32 @@ class searchFunctions extends React.Component {
 							<td>
 								<select id = "modelDropDown" style = {{width: '150px'}}> </select>
 							</td>
-							<td> Keys </td>
+							<td> Keys</td>
 							<td>
-								<select id = "keyDropDown">
-									<option value= ""></option>
-									<option value= "YES"> YES </option>
-									<option value= "NO"> NO </option>
-								</select>
-
-								<div className="radio">
-          <label>
-            <input type="radio" value="option1" checked={true} />
-            Option 1
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="option2" />
-            Option 2
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input type="radio" value="option3" />
-            Option 3
-          </label>
-        </div>
+									{/*radio buttons for keys or no keys */}
+									<div className="ui radio checkbox" >
+							    	<label>
+											{/*Need to see if same id can be used for yes and no radiobox
+												or if they need to stay seperate
+												We might want to change the 1 and 2 later*/}
+							         <input type="radio"
+											 				value="YES"
+															id = "keyDropDown"
+											 				checked={this.state.value === 1}
+											 				onChange={() => this.handleRadioButton(1)}/>
+							            Yes
+							     	</label>
+							    </div>
+							    	<div className="radio">
+							      	<label>
+							        	<input type="radio"
+															 value="NO"
+															 id = "keyDropDown2"
+															 checked={this.state.value === 2}
+															 onChange={() => this.handleRadioButton(2)}/>
+							            No
+							        </label>
+							    </div>
 							</td>
 							<td> Reason </td>
 							<td>

@@ -16,7 +16,7 @@ class decodeVIN extends React.Component {
 								    <td className = {classes.ID}> Transmission </td>
 								    <td className = {classes.Info}> {this.props.transmission} </td>
 								    <td className = {classes.ID}> Displacement CC </td>
-								    <td className = {classes.Info}> {this.props.displacementCC} </td>
+								    <td className = {classes.Info}> {this.props.displacementCC === "" ? "" : Math.round(this.props.displacementCC) } </td>
 		        				</tr>
 								<tr>
 								    <td className = {classes.ID}> Drive Type </td>
@@ -38,7 +38,7 @@ class decodeVIN extends React.Component {
 		        				</tr>
 								<tr>
 								    <td className = {classes.ID}> Horse Power </td>
-								    <td className = {classes.Info}> {this.props.engineHP} </td>
+								    <td className = {classes.Info}> {this.props.engineHP === "" ? "" : Math.round(this.props.displacementCC)} </td>
 								    <td className = {classes.ID}> Length </td>
 								    <td className = {classes.Info}> {this.props.length} </td>
 		        				</tr>

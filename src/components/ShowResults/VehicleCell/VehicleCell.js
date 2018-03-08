@@ -1,7 +1,7 @@
 import React from 'react';
 
 import $ from 'jquery';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 
 import classes from './VehicleCell.css';
 import DecodeVIN from '../DecodeVIN/DecodeVIN'
@@ -9,7 +9,7 @@ import DecodeVIN from '../DecodeVIN/DecodeVIN'
 class vehicleCell extends React.Component {
     constructor(props) {
         super(props);
-        this.saveItem = this.saveItem.bind(this);
+        // this.saveItem = this.saveItem.bind(this);
         this.getVinInformation = this.getVinInformation.bind(this);
         this.getPhotos = this.getPhotos.bind(this)
         this.state = {
@@ -32,24 +32,23 @@ class vehicleCell extends React.Component {
             length: '',
             weight: '',
             seatBelts: '',
-
         };
     }
 
-    saveItem() {
-        let dbCon = firebase.database().ref('savedVehicles');
-        dbCon.push({
-            vehicle: this.props,
-            user: '123'
-        })
-        this.setState({
-            vehicle: '',
-            user: ''
-        });
-    }
+    // saveItem() {
+    //     let dbCon = firebase.database().ref('savedVehicles');
+    //     dbCon.push({
+    //         vehicle: this.props,
+    //         user: '123'
+    //     })
+    //     this.setState({
+    //         vehicle: '',
+    //         user: ''
+    //     });
+    // }
 
     getPhotos() {
-      alert('Open New Pictures')
+      alert('Open More Pictures')
     }
 
     getVinInformation () {
@@ -64,8 +63,6 @@ class vehicleCell extends React.Component {
             data: { format: "json", data: this.props.vin},
             dataType: "json",
             success: function(result) {
-                console.log(result.Results[0]);
-
                 transmission = result.Results[0].TransmissionStyle
                 driveType = result.Results[0].DriveType
                 ABS = result.Results[0].ABS
@@ -81,7 +78,6 @@ class vehicleCell extends React.Component {
                 length = result.Results[0].TrailerLength
                 weight = result.Results[0].GVWR
                 seatBelts = result.Results[0].SeatBeltsAll
-
             }
         })
 
@@ -107,14 +103,13 @@ class vehicleCell extends React.Component {
     }
 
     render() {
-
         return (
             <div className = {classes.vehicleCell}>
                 <div className = {classes.vehicleInformation}>
                     <table>
                         <tbody>
                             <tr>
-                                <td>
+                                <td className = {classes.vehicleText}>
                                     <h4> {this.props.year} {this.props.make} {this.props.model} </h4>
                                     <p> VIN: {this.props.vin} </p>
                                     <p> Lot: {this.props.lot} </p>
@@ -124,7 +119,7 @@ class vehicleCell extends React.Component {
                                     <p> Keys: {this.props.k} </p>
                                     <p> Comments: {this.props.comments} </p>
                                 </td>
-                                <td>
+                                <td className = {classes.vehiclePicture}>
                                     <img
                                       alt = "vehiclePic"
                                       src="http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"

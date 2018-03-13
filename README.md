@@ -8,6 +8,8 @@
 
 Working version of this project is here: https://mysterious-sands-83398.herokuapp.com/
 
+Auction site where pictures are stored http://oaiauctions.hibid.com/
+
 ## Problem Statement
 
 KCMO runs monthly auctions of cars and other items (boats,

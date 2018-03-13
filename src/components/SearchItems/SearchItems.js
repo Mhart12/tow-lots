@@ -189,6 +189,18 @@ class searchFunctions extends React.Component {
 							<td>
 								<select id = "modelDropDown" style = {{width: '150px'}}> </select>
 							</td>
+							<td> Reason </td>
+							<td>
+								<select id = 'reasonDropDown'>
+									<option value= ''> </option>
+									<option value= 'ABANDONED'> ABANDONED </option>
+									<option value= 'ACCIDENT'> ACCIDENT </option>
+									<option value= 'ARREST'> ARREST </option>
+									<option value= 'ILLEGALLY PARKED'> ILLEGALLY PARKED</option>
+									<option value= 'OTHER'> OTHER </option>
+									<option value= 'STOLEN'> STOLEN </option>
+								</select>
+							</td>
 							<td> Keys</td>
 							<td>
 									{/*radio buttons for keys or no keys */}
@@ -215,18 +227,6 @@ class searchFunctions extends React.Component {
 							            No
 							        </label>
 							    </div>
-							</td>
-							<td> Reason </td>
-							<td>
-								<select id = 'reasonDropDown'>
-									<option value= ''> </option>
-									<option value= 'ABANDONED'> ABANDONED </option>
-									<option value= 'ACCIDENT'> ACCIDENT </option>
-									<option value= 'ARREST'> ARREST </option>
-									<option value= 'ILLEGALLY PARKED'> ILLEGALLY PARKED</option>
-									<option value= 'OTHER'> OTHER </option>
-									<option value= 'STOLEN'> STOLEN </option>
-								</select>
 							</td>
 						</tr>
 					</tbody>

@@ -121,7 +121,19 @@ class ShowResults extends React.Component {
         child = <Spinner />
         recordsLength = 'Loading...'
       } else {
-        child = this.state.data.map((el, index) => {
+
+        // http://oaiauctions.hibid.com/lot/38762790/1998-nissan-altima
+        // web scrape this address img src
+        //
+        // let pictureNumber = 117987824
+        // for (let i = 0; i < child.length; i++) {
+        //   child[i]["picture"] = pictureNumber;
+        //   pictureNumber += 3
+        // }
+        //
+        // console.log(child)
+
+        child = this.state.data.sort((a,b) => a.lot - b.lot).map((el, index) => {
 
           let keys
           if (el.k === undefined) keys = "NO"
@@ -151,7 +163,8 @@ class ShowResults extends React.Component {
               tow_reference = {towReference}
               vehicle_id = {vehicleID}
               k = {keys}
-              comments = {comments} />
+              comments = {comments}
+              picture = {el.picture} />
 
           // search for ONLY min year
           if (dropDownYearMin <= year && dropDownYearMax === 3000 && dropDownMake === "" && dropDownModel === "" && dropDownKey === "" && dropDownReason === "") {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import classes from './ResetButton.css'
 
-class rearchButton extends React.Component {
+class resetButton extends React.Component {
   render() {
     return (
       <button className ={classes.ResetButton} {...this.props}>
@@ -12,4 +12,4 @@ class rearchButton extends React.Component {
   }
 }
 
-export default rearchButton;
+export default resetButton;

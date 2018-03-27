@@ -6,14 +6,13 @@ class AuctionInformation extends React.Component {
 
 render() {
 
-  var year = new Date().getFullYear()
-  var month = new Date().getMonth();
-  var day = new Date().getDay()
+  let year = new Date().getFullYear()
+  let month = new Date().getMonth();
+  let day = new Date().getDay()
 
-  function thirdTuesdayOfMonth(day, n, date) {
-      var count = 0;
-      var idate = new Date(date);
-
+  const thirdTuesdayOfMonth = (day, n, date) => {
+      let count = 0;
+      let idate = new Date(date);
       idate.setDate(1);
 
       while ((count) < n) {
@@ -22,11 +21,10 @@ render() {
           count++;
         }
       }
-
-    return idate.toString()
+      return idate.toString()
   }
 
-  var nextAuction = thirdTuesdayOfMonth(2, 3, new Date(year, month, day)).substring(0,16)
+  const nextAuction = thirdTuesdayOfMonth(2, 3, new Date(year, month, day)).substring(0,16)
 
     return (
       <div className = {classes.nextAuction}>

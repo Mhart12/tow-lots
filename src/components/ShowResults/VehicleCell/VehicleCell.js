@@ -1,10 +1,10 @@
 import React from 'react';
 
 import $ from 'jquery';
-// import firebase from 'firebase';
-
 import classes from './VehicleCell.css';
 import DecodeVIN from '../DecodeVIN/DecodeVIN'
+import VehiclePicture from './VehiclePicture/VehiclePicture'
+// import firebase from 'firebase';
 
 class vehicleCell extends React.Component {
     constructor(props) {
@@ -120,10 +120,7 @@ class vehicleCell extends React.Component {
                                     <p> Comments: {this.props.comments} </p>
                                 </td>
                                 <td className = {classes.vehiclePicture}>
-                                    <img
-                                      alt = "vehiclePic"
-                                      src="http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"
-                                      onClick = {this.getPhotos}  />
+                                  <VehiclePicture />
                                 </td>
                                 <td>
                                     <button className = {classes.expandButton}

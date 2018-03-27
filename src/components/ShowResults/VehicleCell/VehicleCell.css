@@ -20,6 +20,10 @@
   /* border: 1px solid black */
 }
 
+.vehiclePicture {
+    height: 300px
+}
+
 .vehiclePicture, .vehicleText {
   width: 33%;
 }

@@ -1,16 +1,1 @@
-body {
-  background-color: #edf2f7;
-}
-
-.containerStyle {
-  text-align: center;
-}
-
-.searchDivStyle {
-  background-color: white;
-  border-style: solid;
-  border-color: #737373;
-  border-width: 1px 1px 0px 1px;
-  margin: auto;
-  width: 100%;
-}
+@import '~antd/dist/antd.css';

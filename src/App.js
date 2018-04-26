@@ -1,37 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import './App.css';
+import SearchBar from './components/SearchBar'
+import AuctionTime from './components/AuctionTime'
+import { Layout, Menu} from 'antd';
+const { Header, Content } = Layout;
 
-import classes from './App.css'
-import SearchItems from './components/SearchItems/SearchItems'
-import Toolbar from './components/Toolbar/Toolbar'
-import ShowResults from './components/ShowResults/ShowResults'
-import AuctionInformation from './components/AuctionInformation/AuctionInformation'
-// import firebase from 'firebase';
-
-class App extends React.Component {
-
-  // constructor(props){
-  //   super(props)
-  //   var config = {
-  //     apiKey: "AIzaSyABwi8Vgx2B102P7_90y_2NqKj3i5v0AI4",
-  //     authDomain: "kc-tow-lots.firebaseapp.com",
-  //     databaseURL: "https://kc-tow-lots.firebaseio.com",
-  //     projectId: "kc-tow-lots",
-  //     storageBucket: "kc-tow-lots.appspot.com",
-  //     messagingSenderId: "1023951778590"
-  //   };
-  // firebase.initializeApp(config);
-  // }
-
+export default class App extends Component {
   render() {
-    return <div className ={classes.containerStyle}>
-      <Toolbar />
-      <div className ={classes.searchDivStyle}>
-        <AuctionInformation />
-        <SearchItems/>
+    return (
+      <div>
+        <Layout>
+          <Header>
+            <div style = {{float: 'left', color: 'white', fontWeight: 'bold', fontSize: 30}}> Kansas City Tow Lots </div>
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              style={{ lineHeight: '64px', float: 'right' }}
+            >
+              <Menu.Item key="1">nav 1</Menu.Item>
+              <Menu.Item key="2">nav 2</Menu.Item>
+              <Menu.Item key="3">nav 3</Menu.Item>
+            </Menu>
+          </Header>
+          <Content>
+            <AuctionTime />
+            <SearchBar />
+          </Content>
+        </Layout>
       </div>
-      <ShowResults />
-    </div>;
+    );
   }
 }
-
-export default App

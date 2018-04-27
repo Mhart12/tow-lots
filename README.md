@@ -6,7 +6,7 @@
 
 # tow-lots
 
-Working version of this project is here: https://mysterious-sands-83398.herokuapp.com/
+Working version of this project is here: https://kctowlots.herokuapp.com/
 
 Auction site where pictures are stored http://oaiauctions.hibid.com/
 

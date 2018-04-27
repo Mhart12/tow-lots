@@ -3,7 +3,6 @@
 1. npm install
 2. npm start
 
-
 # tow-lots
 
 Working version of this project is here: https://kctowlots.herokuapp.com/
@@ -34,15 +33,14 @@ A MVP might allow the buyer is able to see all items, narrow items by search & f
 The list of auction items is online at  [https://data.kcmo.org/Traffic/Kansas-City-Monthly-Car-Auction/2uje-k9n5](https://data.kcmo.org/Traffic/Kansas-City-Monthly-Car-Auction/2uje-k9n5).  This page will show you the existing data
 and how to download it or ascdess it using a RESTful API (JSON).  It also contains documentation about the data.
 
-* Lot #
-* make
-* model
-* year
+* Lot#
+* Make
+* Model
+* Year
 * VIN
-* mileage
-* keys (if the vehicle comes with keys)
-* reason vehicle is for sale
-* vehicle number (to identify during auction)
+* Keys (if the vehicle comes with keys)
+* Reason vehicle is for sale
+* Vehicle number (to identify during auction)
 
 ## Future Opportunities
 

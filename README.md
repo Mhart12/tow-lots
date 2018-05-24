@@ -1,12 +1,12 @@
-##Steps to run front-end:
+##Steps to run front-end and back-end
 
-1. npm install
-2. npm start
-
+1. npm install in root directory
+2. npm install in /client file
+3. yarn dev
 
 # tow-lots
 
-Working version of this project is here: https://mysterious-sands-83398.herokuapp.com/
+Working version of this project is here: https://kctowlots.herokuapp.com/
 
 Auction site where pictures are stored http://oaiauctions.hibid.com/
 

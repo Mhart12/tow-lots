@@ -1,23 +1,29 @@
 {
-  "name": "towlots",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "antd": "^3.4.3",
-    "array-includes": "^3.0.3",
-    "axios": "^0.18.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
-  },
+  "name": "tow-lots",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-scripts eject"
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeforkansascity/tow-lots.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codeforkansascity/tow-lots/issues"
+  },
+  "homepage": "https://github.com/codeforkansascity/tow-lots#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0"
   },
   "devDependencies": {
-    "babel-plugin-import": "^1.7.0",
-    "react-app-rewired": "^1.5.2"
+    "concurrently": "^3.5.0"
   }
 }

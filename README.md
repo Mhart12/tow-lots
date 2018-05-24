@@ -2,7 +2,7 @@
 
 1. npm install in root directory
 2. npm install in /client folder
-3. yarn dev to run localhost:3000 for front, localhost:5000 for back concurrently
+3. run yarn dev in root directory to run localhost:3000 for frontend, localhost:5000 for backend at the same time
 
 # tow-lots
 

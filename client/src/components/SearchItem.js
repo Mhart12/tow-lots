@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Col, Button, Modal} from 'antd';
+import { Card, Col, Button, Modal, message} from 'antd';
 import axios from 'axios';
 
 export default class SearchItem extends Component {
@@ -7,10 +7,7 @@ export default class SearchItem extends Component {
       super(props);
 
       this.state = {
-        visible: false,
-        make: this.props.make,
-        vehicle_id: this.props.vehicle_id,
-        year: this.props.year
+        visible: false
       }
     }
 
@@ -28,10 +25,9 @@ export default class SearchItem extends Component {
 
     saveVehicle = () => {
       axios.post('/save_vehicle', {
-        make: this.props.make,
-        vehicle_id: this.props.vehicle_id,
-        year: this.props.year
+        vehicle_id: this.props.vehicle_id
       }).catch((err)=> {})
+      message.success('Saved!');
     }
 
     render() {

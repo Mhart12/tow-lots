@@ -1,7 +1,8 @@
-##Steps to run front-end:
+##Steps to run frontend and backend
 
-1. npm install
-2. npm start
+1. npm install in root directory
+2. npm install in /client folder
+3. yarn dev to run localhost:3000 for front, localhost:5000 for back concurrently
 
 # tow-lots
 

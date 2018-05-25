@@ -15,7 +15,7 @@ export default class SearchResults extends Component {
 
   componentDidMount() {
     axios
-      .get('https://data.kcmo.org/resource/xpwx-fzzw.json')
+      .get('/current_vehicles')
       .then(({data})=> {
         this.setState({
           data: data,

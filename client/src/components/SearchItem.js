@@ -43,7 +43,7 @@ export default class SearchItem extends Component {
             <Card
               title = {`${this.props.year} ${this.props.make} ${this.props.model}`}
               style = {{margin: '0px 10px 10px 10px', border: '1px solid black', textAlign: 'center'}}
-              cover = {<img style ={{height: 300}} alt="example" src="http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg" />}
+              cover = {<img style ={{height: 300}} alt="example" src={this.props.front_pic} />}
             >
               <Card.Grid style={gridStyle}> {this.props.vin} </Card.Grid>
               <Card.Grid style={gridStyle}> Lot: {this.props.lot} </Card.Grid>
@@ -59,9 +59,11 @@ export default class SearchItem extends Component {
                   <p> Tow Reference: {this.props.tow_reference} </p>
                   <p> Vehicle ID: {this.props.vehicle_id} </p>
                   <p> Comments: {this.props.comments} </p>
+                  <img style ={{height: 300}} src={this.props.back_pic} alt='test' />
               </Modal>
               <Button type="primary" onClick={this.saveVehicle}> Save </Button>
             </Card>
+
           </Col>
         </div>
       )

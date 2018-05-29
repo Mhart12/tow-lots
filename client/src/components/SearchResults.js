@@ -40,7 +40,9 @@ export default class SearchResults extends Component {
               tow_reference = {e.tow_reference}
               vehicle_id = {e.vehicle_id}
               comments = {e.comments}
-              keys = {e.k} />
+              keys = {e.k}
+              front_pic = {e.front_pic}
+              back_pic = {e.back_pic} />
           </div> ))
     // search by only year
   } else if (year !== undefined && make === undefined && model === undefined && key === undefined && reason === undefined) {

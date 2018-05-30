@@ -154,10 +154,8 @@ export default class SearchResults extends Component {
 
     render() {
       return (
-        <div>
-          <Row gutter={32} style = {{textAlign: 'center', marginTop: 20}}>
-            {this.returnResults(this.props.searchYear, this.props.searchMake, this.props.searchModel, this.props.searchKey, this.props.searchReason)}
-          </Row>
+        <div style = {{textAlign: 'center', marginTop: 20}}>
+          {this.returnResults(this.props.searchYear, this.props.searchMake, this.props.searchModel, this.props.searchKey, this.props.searchReason)}
         </div>
       )
     }

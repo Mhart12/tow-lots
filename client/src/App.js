@@ -11,15 +11,7 @@ export default class App extends Component {
       <div>
         <Layout>
           <Header>
-            <div style = {{float: 'left', color: 'white', fontWeight: 'bold', fontSize: 30}}> Kansas City Tow Lots </div>
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              style={{ lineHeight: '64px', float: 'right' }}
-            >
-              <Menu.Item key="1"> Tow Lot Information </Menu.Item>
-              <Menu.Item key="2"> Sign In </Menu.Item>
-            </Menu>
+            <div style = {{float: 'left', color: 'white', fontWeight: 'bold', fontSize: 20}}> Kansas City Tow Lots </div>
           </Header>
           <Content>
             <AuctionTime />

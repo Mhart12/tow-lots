@@ -43,7 +43,6 @@ export default class SearchResults extends Component {
               keys = {e.k}
               front_pic = {e.front_pic}
               back_pic = {e.back_pic} />
-              
           </div> ))
     // search by only year
   } else if (year !== undefined && make === undefined && model === undefined && key === undefined && reason === undefined) {

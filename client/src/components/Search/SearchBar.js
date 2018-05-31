@@ -21,7 +21,7 @@ export default class SearchBar extends Component {
 
   componentWillMount() {
     axios
-      .get('https://data.kcmo.org/resource/xpwx-fzzw.json')
+      .get('/current_vehicles')
       .then(({data})=> {
         this.setState({
           data: data,

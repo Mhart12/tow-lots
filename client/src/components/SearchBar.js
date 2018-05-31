@@ -92,27 +92,27 @@ export default class SearchBar extends Component {
     });
 
     return (
-      <div style = {{textAlign: 'center', padding: 20 }}>
-        <Select name="year" style={{ width: 120 }} placeholder="Year" onChange={this.onSelectYear.bind(this, Select.name)}>
+      <div style = {{textAlign: 'center'}}>
+        <Select name="year" style={{ width: 110 }} placeholder="Year" onChange={this.onSelectYear.bind(this, Select.name)}>
             {years.map((e, key) => {
                 return <Option key={key} value={e}>{e}</Option>
             })}
         </Select>
-        <Select name="make" style={{ width: 120 }} placeholder="Make" onChange={this.onSelectMake.bind(this, Select.name)}>
+        <Select name="make" style={{ width: 110 }} placeholder="Make" onChange={this.onSelectMake.bind(this, Select.name)}>
             {makes.map((e, key) => {
                 return <Option key={key} value={e}>{e}</Option>
             })}
         </Select>
-        <Select name="model" style={{ width: 120 }} placeholder="Model" onChange={this.onSelectModel.bind(this, Select.name)}>
+        <Select name="model" style={{ width: 110 }} placeholder="Model" onChange={this.onSelectModel.bind(this, Select.name)}>
             {models.map((e, key) => {
                 return <Option key={key} value={e}>{e}</Option>
             })}
         </Select>
-        <Select name="key" style={{ width: 120 }} placeholder="Keys" onChange={this.onSelectKey.bind(this, Select.name)}>
+        <Select name="key" style={{ width: 110 }} placeholder="Keys" onChange={this.onSelectKey.bind(this, Select.name)}>
           <Option value="Yes">Yes</Option>
           <Option value="No">No</Option>
         </Select>
-        <Select name="reason" style={{ width: 120 }} placeholder="Reason" onChange={this.onSelectReason.bind(this, Select.name)}>
+        <Select name="reason" style={{ width: 110 }} placeholder="Reason" onChange={this.onSelectReason.bind(this, Select.name)}>
           <Option value="ABANDONED"> Abandoned </Option>
           <Option value="ACCIDENT"> Accident </Option>
           <Option value="ARREST"> Arrest </Option>

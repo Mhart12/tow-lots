@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Row, Spin } from 'antd';
-import SearchItem from './SearchItem'
+import SearchItem from './SearchItem/SearchItem'
 
 export default class SearchResults extends Component {
   constructor(props) {
@@ -155,7 +155,9 @@ export default class SearchResults extends Component {
     render() {
       return (
         <div style = {{textAlign: 'center', marginTop: 20}}>
+          <Row gutter={48}>
           {this.returnResults(this.props.searchYear, this.props.searchMake, this.props.searchModel, this.props.searchKey, this.props.searchReason)}
+          </Row>
         </div>
       )
     }

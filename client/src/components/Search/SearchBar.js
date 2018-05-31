@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Select } from 'antd';
 import SearchResults from './SearchResults'
+import AuctionTime from './AuctionTime'
 const Option = Select.Option;
 
 export default class SearchBar extends Component {
@@ -93,6 +94,7 @@ export default class SearchBar extends Component {
 
     return (
       <div style = {{textAlign: 'center'}}>
+        <AuctionTime />
         <Select name="year" style={{ width: 110 }} placeholder="Year" onChange={this.onSelectYear.bind(this, Select.name)}>
             {years.map((e, key) => {
                 return <Option key={key} value={e}>{e}</Option>

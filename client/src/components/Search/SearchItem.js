@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Row, Col, Button, Modal, Icon, Popover, message} from 'antd';
+import { Card, Col, Button, Modal, Icon, Popover, message} from 'antd';
 import axios from 'axios';
 import MediaQuery from 'react-responsive';
 
@@ -48,7 +48,7 @@ export default class SearchItem extends Component {
         <Col span={8}>
         <Card
           title = {`${this.props.year} ${this.props.make} ${this.props.model}`}
-          style = {{margin: '10px 10px 10px 10px', border: '1px solid #DCDCDC', borderRadius: 5, textAlign: 'center', width: 500}}
+          style = {{marginBottom: 5, border: '1px solid #DCDCDC', borderRadius: 5, textAlign: 'center', width: 500}}
           cover = {
                     <Popover content={content}>
                     <img
@@ -79,7 +79,7 @@ export default class SearchItem extends Component {
         const Mobile = () => (
             <Card
               title = {`${this.props.year} ${this.props.make} ${this.props.model}`}
-              style = {{margin: '0px 10px 10px 10px', border: '1px solid #DCDCDC', borderRadius: 5, textAlign: 'center', width: '90%'}}
+              style = {{marginBottom: 5, border: '1px solid #DCDCDC', borderRadius: 5, textAlign: 'center', width: '100%'}}
               cover = {<img style ={{height: 300, width: '100%'}} alt="example" src={this.props.front_pic} onClick={this.showModal} />} >
               <Modal
                 title= "Rear Photo"
@@ -87,7 +87,7 @@ export default class SearchItem extends Component {
                 onOk={this.handleOk}
                 onCancel={this.handleCancel}
               >
-                <img style ={{height: 300, width: '90%'}} src={this.props.back_pic} alt='test' />
+                <img style ={{height: 300, width: '100%'}} src={this.props.back_pic} alt='test' />
             </Modal>
               <p> VIN: {this.props.vin} </p>
               <p> Lot: {this.props.lot} </p>
@@ -96,7 +96,7 @@ export default class SearchItem extends Component {
               <p> Tow Reference: {this.props.tow_reference} </p>
               <p> Vehicle ID: {this.props.vehicle_id} </p>
               <p> Comments: {this.props.comments} </p>
-              <Button style= {{width: '90%', height: 50, backgroundColor: '#F8F8FF'}} onClick={this.saveVehicle}> <Icon type="save" /> Save </Button>
+              <Button style= {{width: '100%', height: 50, backgroundColor: '#F8F8FF'}} onClick={this.saveVehicle}> <Icon type="save" /> Save </Button>
             </Card>
         )
 
@@ -106,7 +106,7 @@ export default class SearchItem extends Component {
             if (matches) {
               return <div> <Desktop /> </div>
             } else {
-              return <div> <Mobile /> </div>;
+              return <div> <Mobile /> </div>
             }
           }}
         </MediaQuery>

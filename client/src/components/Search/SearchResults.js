@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Row, Spin } from 'antd';
-import SearchItem from './SearchItem/SearchItem'
+import { Row, Spin, Pagination } from 'antd';
+import SearchItem from './SearchItem'
 
 export default class SearchResults extends Component {
   constructor(props) {
@@ -43,6 +43,7 @@ export default class SearchResults extends Component {
               keys = {e.k}
               front_pic = {e.front_pic}
               back_pic = {e.back_pic} />
+              
           </div> ))
     // search by only year
   } else if (year !== undefined && make === undefined && model === undefined && key === undefined && reason === undefined) {
@@ -156,7 +157,7 @@ export default class SearchResults extends Component {
       return (
         <div style = {{textAlign: 'center', marginTop: 20}}>
           <Row gutter={48}>
-          {this.returnResults(this.props.searchYear, this.props.searchMake, this.props.searchModel, this.props.searchKey, this.props.searchReason)}
+            {this.returnResults(this.props.searchYear, this.props.searchMake, this.props.searchModel, this.props.searchKey, this.props.searchReason)}
           </Row>
         </div>
       )

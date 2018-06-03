@@ -11,11 +11,11 @@ export default class SearchBar extends Component {
 
     this.state = {
       data: [],
-      searchYear: undefined,
-      searchMake: undefined,
-      searchModel: undefined,
-      searchKey: undefined,
-      searchReason: undefined
+      searchYear: "",
+      searchMake: "",
+      searchModel: "",
+      searchKey: "",
+      searchReason: ""
     }
   }
 
@@ -75,12 +75,14 @@ export default class SearchBar extends Component {
 		   else if (b < a) return 1;
 		   return 0;
 		});
+    makes.splice(0, 0, "");
 
     // create of array of available years and from largest to smallest
     let years = this.state.data.map((e, key) =>  e.year)
     years = years.filter((e, key) => {
       return years.indexOf(e) === key;
     }).sort((a,b) => { return b-a })
+    years.splice(0, 0, "");
 
     // create of array of available models and sort alphabetically
     let models = this.state.data.map((e, key) =>  e.model)
@@ -91,6 +93,7 @@ export default class SearchBar extends Component {
        else if (b < a) return 1;
        return 0;
     });
+    models.splice(0, 0, "");
 
     return (
       <div style = {{textAlign: 'center'}}>
@@ -111,10 +114,12 @@ export default class SearchBar extends Component {
             })}
         </Select>
         <Select name="key" style={{ width: 110 }} placeholder="Keys" onChange={this.onSelectKey.bind(this, Select.name)}>
+          <Option value=""> </Option>
           <Option value="Yes">Yes</Option>
           <Option value="No">No</Option>
         </Select>
         <Select name="reason" style={{ width: 110 }} placeholder="Reason" onChange={this.onSelectReason.bind(this, Select.name)}>
+          <Option value=""> </Option>
           <Option value="ABANDONED"> Abandoned </Option>
           <Option value="ACCIDENT"> Accident </Option>
           <Option value="ARREST"> Arrest </Option>

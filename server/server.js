@@ -44,37 +44,6 @@ app.get('/current_vehicles', (req, res) => {
   })
 })
 
-// only run this when new json and photos are avialable. Need some kind of if statement run
-// axios.get('https://data.kcmo.org/resource/xpwx-fzzw.json')
-//   .then(function (response) {
-//     for(let i in response.data) {
-//       let query = 'INSERT INTO current_vehicles(vehicle_id, year, make, model, reason, tow_reference, vin, lot, k, comments, front_pic, back_pic) VALUES ?';
-//       let values = [
-//         [
-//           response.data[i].vehicle_id,
-//           response.data[i].year,
-//           response.data[i].make,
-//           response.data[i].model,
-//           response.data[i].reason,
-//           response.data[i].tow_reference,
-//           response.data[i].vin,
-//           response.data[i].lot,
-//           response.data[i].k,
-//           response.data[i].comments,
-//           `https://s3.us-east-2.amazonaws.com/kctowlots/june_2018_front/${response.data[i].lot}_f.JPG`,
-//           `https://s3.us-east-2.amazonaws.com/kctowlots/june_2018_back/${response.data[i].lot}_b.JPG`
-//         ]
-//       ]
-//       connection.query(query, [values], function (error, results, fields) {
-//           if (error) throw error;
-//             console.log(`Row added!`);
-//       });
-//     }
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
-
 // saves vehicle_id and user_id into saved_vehicles table. Prevents users from entering duplicates
 app.post('/save_vehicle', (req, res) => {
   let query = "INSERT INTO saved_vehicles(vehicle_id, user_id) SELECT * FROM (SELECT ?, ?) AS temp WHERE NOT EXISTS (SELECT vehicle_id FROM saved_vehicles WHERE vehicle_id = ?) LIMIT 1";

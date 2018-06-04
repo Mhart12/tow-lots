@@ -1,5 +1,7 @@
 import React from 'react';
 import { Form, Input, Icon ,Select, Row, Col, Button, message } from 'antd';
+import { addUser } from '../userApi.js';
+import axios from 'axios';
 
 const FormItem = Form.Item;
 
@@ -16,10 +18,13 @@ class RegistrationForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
+      console.log('Received values of form: ', values);
+      const { userName, email, password } = values;
+      addUser(userName, email, password).then(user => {
+        message.success("Thanks for signing up!");
+      })
+      this.props.history.push('/profile');
+    })
   }
 
   setEmail = (e) => {
@@ -47,7 +52,6 @@ class RegistrationForm extends React.Component {
     callback();
   }
 
-
   render() {
     const { getFieldDecorator } = this.props.form;
 
@@ -74,9 +78,6 @@ class RegistrationForm extends React.Component {
       },
     };
 
-	/* Might need to change layout to horizontal */
-	/* Input boxes need to be centered adding
-	   class to form messing up the input boxes */
     return (
       <div>
       <Form layout="vertical" onSubmit={this.handleSubmit}>
@@ -143,7 +144,6 @@ class RegistrationForm extends React.Component {
           <br />
           Already have an account? <a href="./login">Log In.</a>
         </FormItem>
-
       </Form>
       </div>
     );

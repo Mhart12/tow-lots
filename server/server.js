@@ -44,6 +44,15 @@ app.get('/current_vehicles', (req, res) => {
   })
 })
 
+app.post('/users', (req, res) => {
+  let query = "INSERT INTO users(first_name, last_name, email, password) VALUES ?"
+  let values = [[req.body.username, 'blank', req.body.email, req.body.password]]
+  connection.query(query, [values], function (error, results, fields) {
+      if (error) throw error;
+      console.log('User added!')
+  })
+})
+
 // saves vehicle_id and user_id into saved_vehicles table. Prevents users from entering duplicates
 app.post('/save_vehicle', (req, res) => {
   let query = "INSERT INTO saved_vehicles(vehicle_id, user_id) SELECT * FROM (SELECT ?, ?) AS temp WHERE NOT EXISTS (SELECT vehicle_id FROM saved_vehicles WHERE vehicle_id = ?) LIMIT 1";

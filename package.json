@@ -6,6 +6,7 @@
   "scripts": {
     "client": "cd client && yarn start",
     "server": "nodemon server/server.js",
+    "concurrently": "concurrently",
     "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "repository": {

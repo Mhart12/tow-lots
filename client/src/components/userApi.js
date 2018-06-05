@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-
-const api = process.env.REACT_APP_SERVER_URL || 'http://localhost:3000/api';
+// const api = process.env.REACT_APP_SERVER_URL || 'http://localhost:3000/api';
 
 const baseOptions = {
   headers: {
@@ -22,7 +20,7 @@ export function addUser(username, email, password) {
         return response.json();
       }
     })
-    // .then(data => data ? data.user : null)
+    .then(data => data ? data.user : null)
     .catch(error => {
       console.log(error);
     });

@@ -36,8 +36,8 @@ axios.get('https://data.kcmo.org/resource/xpwx-fzzw.json')
           response.data[i].lot,
           response.data[i].k,
           response.data[i].comments,
-          `https://s3.us-east-2.amazonaws.com/kctowlots/${currentMonth}_${currentYear}_front/${response.data[i].lot}_f.JPG`,
-          `https://s3.us-east-2.amazonaws.com/kctowlots/${currentMonth}_${currentYear}_back/${response.data[i].lot}_b.JPG`
+          `https://s3.us-east-2.amazonaws.com/kctowlots/${currentMonth}_${currentYear}_Front/${response.data[i].lot}_f.jpg`,
+          `https://s3.us-east-2.amazonaws.com/kctowlots/${currentMonth}_${currentYear}_Back/${response.data[i].lot}_b.jpg`
         ]
       ]
       connection.query(query, [values], function (error, results, fields) {

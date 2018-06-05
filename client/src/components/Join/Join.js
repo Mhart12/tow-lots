@@ -1,7 +1,6 @@
 import React from 'react';
-import { Form, Input, Icon ,Select, Row, Col, Button, message } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import { addUser } from '../userApi.js';
-import axios from 'axios';
 
 const FormItem = Form.Item;
 

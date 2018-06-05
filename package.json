@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "cd client && yarn start",
+    "client": "cd client && npm start",
     "server": "nodemon server/server.js",
     "concurrently": "concurrently",
-    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "start": "concurrently --kill-others-on-fail \"npm server\" \"npm client\""
   },
   "repository": {
     "type": "git",

@@ -1,14 +1,14 @@
-##Steps to run frontend and backend
+##Quick Start
 
-1. npm install in root directory
-2. npm install in /client folder
-3. run yarn dev in root directory to run localhost:3000 for frontend, localhost:5000 for backend at the same time
+1. yarn (or npm install)
+2. node src/server/update_db.js (populate local mysql db with current month's vehicles)
+3. yarn dev (or npm run dev)
 
-# tow-lots
+## Heroku App not working currently
+https://kctowlots.herokuapp.com/
 
-Working version of this project is here: https://kctowlots.herokuapp.com/
-
-Auction site where pictures are stored http://oaiauctions.hibid.com/
+## Auction site where pictures are stored
+http://oaiauctions.hibid.com/
 
 ## Problem Statement
 

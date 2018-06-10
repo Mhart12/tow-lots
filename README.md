@@ -1,3 +1,6 @@
+![capture1](https://user-images.githubusercontent.com/22011201/41207509-076fe1f0-6cdd-11e8-88d6-9fe303a3a10d.PNG)
+![capture](https://user-images.githubusercontent.com/22011201/41207489-af4e8ab2-6cdc-11e8-9d42-02505b4a0240.PNG)
+
 ## Quick Start
 
 1. yarn (or npm install)

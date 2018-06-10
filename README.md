@@ -5,8 +5,8 @@
 3. yarn dev (or npm run dev)
 
 ##You might need to take two more steps below to get app working
-#npm install -g webpack-dev-server
-#npm install babel-plugin-import --save-dev
+1. npm install -g webpack-dev-server
+2. npm install babel-plugin-import --save-dev
 
 ##Heroku App not working currently
 https://kctowlots.herokuapp.com/

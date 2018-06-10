@@ -21,7 +21,7 @@ export default class SearchBar extends Component {
 
   componentWillMount() {
     axios
-      .get('/current_vehicles')
+      .get('/api/current_vehicles')
       .then(({data})=> {
         this.setState({
           data: data,

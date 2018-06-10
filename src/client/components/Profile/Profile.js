@@ -3,7 +3,9 @@ import React from 'react';
 export default class Profile extends React.Component {
   render() {
     return (
-      <p> Profile Page </p>
+      <div>
+        <p> Profile Page </p>
+      </div>
     )
   }
 }

@@ -14,7 +14,7 @@ class RegistrationForm extends React.Component {
     }
   };
 
-  handleSubmit = (e) => {
+  handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       console.log('Received values of form: ', values);
@@ -26,16 +26,16 @@ class RegistrationForm extends React.Component {
     })
   }
 
-  setEmail = (e) => {
+  setEmail(e) {
     console.log(e.target.value);
     this.setState({ email: e.target.value });
   }
 
-  handleConfirmBlur = (e) => {
+  handleConfirmBlur(e) {
     const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
-  checkPassword = (rule, value, callback) => {
+  checkPassword(rule, value, callback) {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
       callback('Two passwords that you enter is inconsistent!');
@@ -43,7 +43,7 @@ class RegistrationForm extends React.Component {
       callback();
     }
   }
-  checkConfirm = (rule, value, callback) => {
+  checkConfirm(rule, value, callback) {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
       form.validateFields(['confirm'], { force: true });

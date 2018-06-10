@@ -3,7 +3,7 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
 class LoginForm extends React.Component {
-  handleSubmit = (e) => {
+  handleSubmit() {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {

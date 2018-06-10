@@ -2,21 +2,12 @@ const mysql = require('mysql');
 const axios = require('axios');
 const moment = require('moment')
 
-// run this file popular sql database for monthly json date from tow lot
 const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root', // your username
   password : 'root', // your password
   database : 'mydb' // your mysql db
-});
-
-// heroku clearDB
-// const connection = mysql.createConnection({
-//   host     : 'us-cdbr-iron-east-04.cleardb.net',
-//   user     : 'b94f076178cf2b',
-//   password : '40fa7e1f',
-//   database : 'heroku_abec635e75dc7cd'
-// });
+});;
 
 connection.connect();
 

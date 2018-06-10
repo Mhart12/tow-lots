@@ -10,21 +10,26 @@ export default class SearchItem extends Component {
       this.state = {
         visible: false
       }
+
+      this.showModal = this.showModal.bind(this);
+      this.handleOk = this.handleOk.bind(this);
+      this.handleCancel = this.handleCancel.bind(this);
+      this.saveVehicle = this.saveVehicle.bind(this);
     }
 
-    showModal = () => {
+    showModal() {
       this.setState({ visible: true });
     }
 
-    handleOk = () => {
+    handleOk() {
       this.setState({ visible: false });
     }
 
-    handleCancel = () => {
+    handleCancel() {
       this.setState({ visible: false });
     }
 
-    saveVehicle = () => {
+    saveVehicle() {
       axios.post('/save_vehicle', {
         vehicle_id: this.props.vehicle_id
       }).catch((err)=> {})

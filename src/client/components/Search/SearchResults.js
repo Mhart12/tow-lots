@@ -18,7 +18,7 @@ export default class SearchResults extends Component {
 
   componentDidMount() {
     axios
-      .get('/current_vehicles')
+      .get('/api/current_vehicles')
       .then(({data})=> {
         this.setState({
           data: data.sort((a,b) => a.lot - b.lot),

@@ -1,0 +1,6 @@
+{
+  "presets": ["env", "react", "babel-polyfill"],
+  "plugins": [
+    ["import", { "libraryName": "antd", "style": "css" }],
+  ]
+}

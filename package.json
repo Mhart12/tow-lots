@@ -1,7 +1,7 @@
 {
-  "name": "simple-react-full-stack",
+  "name": "tow-lots",
   "version": "1.0.0",
-  "description": "Boilerplate to build a full stack web application using React, Node.js, Express and Webpack.",
+  "description": "",
   "main": "src/server/index.js",
   "scripts": {
     "db:migrate": "./node_modules/.bin/sequelize db:migrate",
@@ -12,7 +12,13 @@
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Sandeep Raveesh",
+  "repository": {
+  "type": "git",
+  "url": "git+https://github.com/codeforkansascity/tow-lots.git"
+  },
+  "bugs": {
+  "url": "https://github.com/codeforkansascity/tow-lots/issues"
+  },
   "license": "ISC",
   "dependencies": {
     "antd": "^3.6.1",

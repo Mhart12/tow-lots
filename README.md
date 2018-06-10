@@ -1,8 +1,12 @@
 ## Quick Start
 
 1. yarn (or npm install)
-2. node src/server/update_db.js (populate local mysql db with current month's vehicles)
+2. node src/server/update_db.js (populate local mysql db with current month's vehicles along with AWS hosted pictures)
 3. yarn dev (or npm run dev)
+
+##You might need to take two more steps below to get app working
+#npm install -g webpack-dev-server
+#npm install babel-plugin-import --save-dev
 
 ##Heroku App not working currently
 https://kctowlots.herokuapp.com/

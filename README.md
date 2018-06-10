@@ -1,13 +1,13 @@
-#Quick Start
+## Quick Start
 
 1. yarn (or npm install)
 2. node src/server/update_db.js (populate local mysql db with current month's vehicles)
 3. yarn dev (or npm run dev)
 
-## Heroku App not working currently
+##Heroku App not working currently
 https://kctowlots.herokuapp.com/
 
-## Auction site where pictures are stored
+##Auction site where pictures are stored
 http://oaiauctions.hibid.com/
 
 ## Problem Statement

@@ -11,8 +11,8 @@
 1. npm install -g webpack-dev-server
 2. npm install babel-plugin-import --save-dev
 
-##Heroku App not working currently
-https://kctowlots.herokuapp.com/
+##Heroku App 
+http://kansascitytowlots.herokuapp.com/
 
 ##Auction site where pictures are stored
 http://oaiauctions.hibid.com/

@@ -13,17 +13,16 @@
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
-  "type": "git",
-  "url": "git+https://github.com/codeforkansascity/tow-lots.git"
+    "type": "git",
+    "url": "git+https://github.com/codeforkansascity/tow-lots.git"
   },
   "bugs": {
-  "url": "https://github.com/codeforkansascity/tow-lots/issues"
+    "url": "https://github.com/codeforkansascity/tow-lots/issues"
   },
   "license": "ISC",
   "dependencies": {
     "antd": "^3.6.1",
     "axios": "^0.18.0",
-    "babel-plugin-import": "^1.7.0",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
@@ -41,6 +40,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-plugin-import": "^1.8.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",

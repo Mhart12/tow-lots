@@ -1,26 +1,40 @@
-import React from 'react';
+﻿import React from 'react';
 import moment from 'moment';
 
 export default class AuctionTime extends React.Component {
-  render() {
+    render() {
 
-    let currentYear = moment().year();
-    let currentMonth = moment().month()
+        let currentYear = moment().year();
+        let currentMonth = moment().month();
 
-    const getThirdTuesday = (year, month) => {
-      let myMonth = moment({year: year, month: month});
-      let thirdTuesday = myMonth.weekday(2);
-      let nWeeks = 2;
+        const getThirdTuesday = (month, year) => {
+            let d = new Date(year, month, 1),
+                tuesdays = [];
+                d.setDate(d.getDate() + (9 - d.getDay()) % 7)
+            while (d.getMonth() === month) {
+                tuesdays.push(new Date(d.getTime()));
+                d.setDate(d.getDate() + 7);
+            }
+            return tuesdays;
+        }
 
-      if (thirdTuesday.month() !== month) nWeeks++;
+        var today = new Date(),
+            theseTuesdays = getTuesdays(today.getMonth(), today.getFullYear()),
+            next;
 
-      return thirdTuesday.add(nWeeks, 'weeks').format("MMMM DD YYYY");
+        theseTuesdays.some(function (tuesday, index) {
+            if (index % 2 === 1 && tuesday > today) {
+                next = tuesday;
+                return true;
+            }
+
+            return false;
+        });
+
+        return (
+            <div style={{ textAlign: 'center', padding: 10, fontWeight: 'bold' }}>
+                Next Auction: moment(next).format("MMMM Do YYYY"));
+            </div>
+        );
     }
-
-    return (
-      <div style = {{textAlign: 'center', padding: 10, fontWeight: 'bold'}}>
-        Next Auction: {getThirdTuesday(currentYear, currentMonth)}
-      </div>
-    );
-  }
 }

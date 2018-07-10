@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\client",
+    "\\src\\client\\components",
+    "\\src\\client\\components\\Search",
+    "\\src\\server"
+  ],
+  "SelectedNode": "\\src\\client\\components\\Search\\AuctionTime.js",
+  "PreviewInSolutionExplorer": false
+}

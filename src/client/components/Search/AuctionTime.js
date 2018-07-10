@@ -4,9 +4,6 @@ import moment from 'moment';
 export default class AuctionTime extends React.Component {
     render() {
 
-        let currentYear = moment().year();
-        let currentMonth = moment().month();
-
         const getThirdTuesday = (month, year) => {
             let d = new Date(year, month, 1),
                 tuesdays = [];
@@ -17,9 +14,8 @@ export default class AuctionTime extends React.Component {
             }
             return tuesdays;
         }
-
         var today = new Date(),
-            theseTuesdays = getTuesdays(today.getMonth(), today.getFullYear()),
+            theseTuesdays = getThirdTuesday(today.getMonth(), today.getFullYear()),
             next;
 
         theseTuesdays.some(function (tuesday, index) {
@@ -27,14 +23,11 @@ export default class AuctionTime extends React.Component {
                 next = tuesday;
                 return true;
             }
-
             return false;
         });
-
-        return (
-            <div style={{ textAlign: 'center', padding: 10, fontWeight: 'bold' }}>
-                Next Auction: moment(next).format("MMMM Do YYYY"));
-            </div>
-        );
+        return
+        <div style={{ textAlign: 'center', padding: 10, fontWeight: 'bold' }}>
+            Next Auction: moment(next).format("MMMM DD YYYY");
+        </div>
     }
 }
